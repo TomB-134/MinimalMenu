@@ -1,5 +1,6 @@
 package minimalmenu.mixin;
 
+import minimalmenu.MinimalMenu;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.widget.AbstractButtonWidget;
@@ -29,11 +30,25 @@ public class TitleScreenMixin extends Screen {
 
         for (AbstractButtonWidget buttonWidget : this.buttons) {
             if (buttonWidget instanceof ButtonWidget) {
-                System.out.println(buttonWidget.getMessage().getString());
                 if(this.buttons.indexOf(buttonWidget) == 2) { //Hide realms button.
                     buttonWidget.setWidth(0);
                     buttonWidget.setMessage(new TranslatableText(""));
                 }
+                if(this.buttons.indexOf(buttonWidget) == 3 && MinimalMenu.getIsModInstalled("modmenu")) {
+                    buttonWidget.y-=24;
+                }
+
+                if (!MinimalMenu.getIsModInstalled("modmenu")) {
+                    if (buttons.indexOf(buttonWidget) == 4 || buttons.indexOf(buttonWidget) == 5) {
+                        buttonWidget.y-=24;
+                    }
+                } else {
+                    if (buttons.indexOf(buttonWidget) == 5 || buttons.indexOf(buttonWidget) == 6) {
+                        buttonWidget.y-=24;
+                    }
+                }
+
+                buttonWidget.y+=24; //Move all down
             }
         }
     }
@@ -44,5 +59,4 @@ public class TitleScreenMixin extends Screen {
         assert this.client != null;
         this.client.options.realmsNotifications = false;
     }
-
 }
