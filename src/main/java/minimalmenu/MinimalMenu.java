@@ -19,6 +19,8 @@ public class MinimalMenu implements ModInitializer {
         log(Level.INFO, "Initializing MinimalMenu... searching for mod menu installation.");
         if (getIsModInstalled("modmenu")) {
             log(Level.INFO, "Mod menu is installed, will adjust.");
+        } if (getIsModInstalled("better_mod_button")) {
+            log(Level.WARN, "Advised removal of Better Mod Button for cleaner look.");
         }
     }
 
