@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "minimalmenu",
+  "version": "${version}",
+  "name": "MinimalMenu",
+  "description": "Removes unnecessary clutter from the title screen.",
+  "authors": [
+    "TomB_134"
+  ],
+  "contributors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/minimalmenu/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "minimalmenu.MinimalMenu"
+    ],
+    "client": [],
+    "server": []
+  },
+  "mixins": [
+    "minimalmenu.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.9.1",
+    "fabric": "*"
+  }
+}

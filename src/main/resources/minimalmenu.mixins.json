@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "minimalmenu.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [],
+  "client": [
+    "TitleScreenMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
