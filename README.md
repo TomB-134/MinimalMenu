@@ -16,4 +16,4 @@ Removes the clutter from the title screen. This small lightweight mod gets rid o
 #### TODO
 * Add mod menu support.
 
-**Warning: This mod may not be compatible with other GUI related mods, if you would like your mod supported open a github suggestion marked as a feature request**
+**Warning: This mod may not be compatible with other GUI related mods, if you would like a mod to be supported open a github suggestion marked as a feature request**
