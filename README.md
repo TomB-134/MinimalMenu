@@ -11,7 +11,9 @@ Removes the clutter from the title screen. This small lightweight mod gets rid o
 1. Download and install Fabric from here: https://fabricmc.net/use
 2. Download Fabric API mod from here: https://www.curseforge.com/minecraft/mc-mods/fabric-api and place in your mods folder.
 3. Download minimal menu from [the github page](https://github.com/TomB-134/MinimalMenu/releases) and place in your mods folder.
+4. Launch the game and configure the options you want in config/minimalmenu.json, note that this does require a restart.
 
 #### TODO
-* Ability configure features.
 * Add mod menu support.
+
+**Warning: This mod may not be compatible with other GUI related mods, if you would like your mod supported open a github suggestion marked as a feature request**

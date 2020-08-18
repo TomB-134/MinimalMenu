@@ -8,7 +8,11 @@
     "TomB_134"
   ],
   "contributors": [],
-  "contact": {},
+  "contact": {
+    "homepage": "https://github.com/TomB-134/MinimalMenu",
+    "issues" : "https://github.com/TomB-134/MinimalMenu/issues",
+    "sources": "https://github.com/TomB-134/MinimalMenu"
+  },
   "license": "MIT",
   "icon": "assets/minimalmenu/icon64.png",
   "environment": "client",
