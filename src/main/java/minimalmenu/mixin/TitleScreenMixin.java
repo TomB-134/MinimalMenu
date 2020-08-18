@@ -6,19 +6,28 @@ import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.widget.AbstractButtonWidget;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-
 @Mixin(TitleScreen.class)
 public class TitleScreenMixin extends Screen {
+    @Shadow private String splashText;
+    @Shadow private int copyrightTextX;
     protected TitleScreenMixin(Text title) {
         super(title);
     }
 
     @Inject(at = @At("TAIL"), method = "init()V")
     protected void init(CallbackInfo info) {
+        if (MinimalMenu.getConfigHandler().DO_SPLASH_TEXT_REMOVAL) {
+            splashText = "";
+        }
+        if (MinimalMenu.getConfigHandler().DO_COPYRIGHT_TEXT_REMOVAL) {
+            copyrightTextX = 1000000000; //Yeah I know....
+        }
+
         MinimalMenu.getConfigHandler().read();
         if (MinimalMenu.allInstalledIDS().contains("modmenu")) { //Do logic for mod menu.
             for (AbstractButtonWidget button : this.buttons) {
