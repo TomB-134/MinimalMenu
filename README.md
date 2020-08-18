@@ -2,7 +2,7 @@
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue)
 ![Game version](https://img.shields.io/badge/minecraft-1.16.2-blueviolet)
 
-Removes unnecessary clutter from the title screen, like the realms button and accessibility buttons which are still available through the options screen. This mod is compatible with mod menu.
+Removes the clutter from the title screen. This small lightweight mod gets rid of the language, accessibility, and Minecraft Realm boxes. All are independently configurable. This mod also has compatibility with mod menu.
 
 ## Installation
 
