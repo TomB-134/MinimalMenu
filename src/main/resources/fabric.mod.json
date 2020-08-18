@@ -11,7 +11,7 @@
   "contact": {},
   "license": "MIT",
   "icon": "assets/minimalmenu/icon64.png",
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
     "main": [
       "minimalmenu.MinimalMenu"
@@ -25,5 +25,8 @@
   "depends": {
     "fabricloader": ">=0.9.1",
     "fabric": "*"
+  },
+  "recommends": {
+    "modmenu": ">=1.14.0"
   }
 }

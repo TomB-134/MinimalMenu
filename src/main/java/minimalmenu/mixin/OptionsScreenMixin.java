@@ -1,5 +1,6 @@
 package minimalmenu.mixin;
 
+import minimalmenu.MinimalMenu;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.options.OptionsScreen;
 import net.minecraft.client.gui.widget.AbstractButtonWidget;
@@ -19,11 +20,12 @@ public class OptionsScreenMixin extends Screen {
 
     @Inject(at = @At("TAIL"), method = "init()V")
     protected void init(CallbackInfo info) {
-        for (AbstractButtonWidget button : this.buttons) {
-            System.out.println(button);
-            if (button instanceof OptionButtonWidget) {
-                button.setWidth(0);
-                button.setMessage(new TranslatableText(""));
+        if (MinimalMenu.getConfigHandler().DO_REALMS_REMOVAL) {
+            for (AbstractButtonWidget button : this.buttons) {
+                if (button instanceof OptionButtonWidget && buttons.indexOf(button) == 1) {
+                    button.setWidth(0);
+                    button.setMessage(new TranslatableText(""));
+                }
             }
         }
     }
