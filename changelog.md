@@ -1,4 +1,4 @@
-#Minecraft 1.16.2 - 0.0.2
+# Minecraft 1.16.2 - 0.0.2
 This is version 0.0.2 of minimal menu for minecraft 1.16.2
 
 Changelog:
