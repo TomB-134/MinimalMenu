@@ -6,7 +6,8 @@
   "client": [
     "TitleScreenMixin",
     "OptionsScreenMixin",
-    "SelectWorldScreenMixin"
+    "SelectWorldScreenMixin",
+    "GameMenuScreenMixin"
   ],
   "server": [],
   "injectors": {
