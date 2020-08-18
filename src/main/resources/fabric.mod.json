@@ -3,14 +3,14 @@
   "id": "minimalmenu",
   "version": "${version}",
   "name": "MinimalMenu",
-  "description": "Removes unnecessary clutter from the title screen.",
+  "description": "Removes the clutter from the title screen. This small lightweight mod gets rid of the language, accessibility, and Minecraft Realm boxes. All are independently configurable.",
   "authors": [
     "TomB_134"
   ],
   "contributors": [],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/minimalmenu/icon.png",
+  "icon": "assets/minimalmenu/icon64.png",
   "environment": "*",
   "entrypoints": {
     "main": [
