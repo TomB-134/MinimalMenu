@@ -16,4 +16,4 @@ Removes the clutter from the title screen. This small lightweight fabric mod get
 #### TODO
 * Add mod menu support.
 
-**Warning: This mod may not be compatible with other GUI related mods, if you would like a mod to be supported open a github issue marked as a feature request**
+**Warning: This mod may not be compatible with other GUI related mods and is only designed to work with either mod menu or vanilla GUI.**
