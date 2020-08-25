@@ -6,6 +6,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonWriter;
 import minimalmenu.MinimalMenu;
+import minimalmenu.mixin.RotatingCubeMapRendererMixin;
 import net.fabricmc.loader.api.FabricLoader;
 import org.apache.logging.log4j.Level;
 import java.io.FileReader;
@@ -42,6 +43,7 @@ public class ConfigHandler {
             jw.beginObject()
                     .name("REMOVE_SPLASH").value(REMOVE_SPLASH)
                     .name("REMOVE_REALMS").value(REMOVE_REALMS)
+                    .name("REMOVE_COPYRIGHT").value(REMOVE_COPYRIGHT)
                     .name("STOP_SPIN").value(STOP_SPIN)
                     .endObject();
         } catch (IOException e) {
@@ -60,6 +62,7 @@ public class ConfigHandler {
                 final JsonObject object = je.getAsJsonObject();
                 REMOVE_SPLASH = readBoolean(object, "REMOVE_SPLASH", false);
                 REMOVE_REALMS = readBoolean(object, "REMOVE_REALMS", false);
+                REMOVE_COPYRIGHT = readBoolean(object, "REMOVE_COPYRIGHT", false);
                 STOP_SPIN = readBoolean(object, "STOP_SPIN", false);
             } catch (IOException | JsonSyntaxException e) {
                 e.printStackTrace();
@@ -72,6 +75,7 @@ public class ConfigHandler {
     private static void setDefaults() {
         REMOVE_SPLASH = false;
         REMOVE_REALMS = false;
+        REMOVE_COPYRIGHT = false;
         STOP_SPIN = false;
     }
 
