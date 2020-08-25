@@ -21,6 +21,7 @@ public class ConfigHandler {
     public static boolean REMOVE_LANGUAGE;
     public static boolean REMOVE_ACCESSIBILITY;
     public static boolean REMOVE_COPYRIGHT;
+    public static boolean STOP_SPIN;
 
     public static boolean REMOVE_REALMS_NOTIF;
 
@@ -41,6 +42,7 @@ public class ConfigHandler {
             jw.beginObject()
                     .name("REMOVE_SPLASH").value(REMOVE_SPLASH)
                     .name("REMOVE_REALMS").value(REMOVE_REALMS)
+                    .name("STOP_SPIN").value(STOP_SPIN)
                     .endObject();
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,7 +60,7 @@ public class ConfigHandler {
                 final JsonObject object = je.getAsJsonObject();
                 REMOVE_SPLASH = readBoolean(object, "REMOVE_SPLASH", false);
                 REMOVE_REALMS = readBoolean(object, "REMOVE_REALMS", false);
-
+                STOP_SPIN = readBoolean(object, "STOP_SPIN", false);
             } catch (IOException | JsonSyntaxException e) {
                 e.printStackTrace();
             }
@@ -70,6 +72,7 @@ public class ConfigHandler {
     private static void setDefaults() {
         REMOVE_SPLASH = false;
         REMOVE_REALMS = false;
+        STOP_SPIN = false;
     }
 
     private static boolean readBoolean(JsonObject json, String key, boolean fallback) {

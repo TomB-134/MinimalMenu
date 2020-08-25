@@ -52,6 +52,12 @@ public class ConfigScreen {
                 .setSaveConsumer(newValue -> ConfigHandler.REMOVE_COPYRIGHT = newValue)
                 .build());
 
+        titleScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.title.spin"), ConfigHandler.STOP_SPIN)
+                .setDefaultValue(false)
+                .setTooltip(new TranslatableText("config.option.title.spin.tooltip"))
+                .setSaveConsumer(newValue -> ConfigHandler.STOP_SPIN = newValue)
+                .build());
+
         //Build options screen options
         optionsScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.options.realmsNotif"), ConfigHandler.REMOVE_REALMS_NOTIF)
                 .setDefaultValue(false)
