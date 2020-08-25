@@ -5,10 +5,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonWriter;
-import minimalmenu.MinimalMenu;
-import minimalmenu.mixin.RotatingCubeMapRendererMixin;
 import net.fabricmc.loader.api.FabricLoader;
-import org.apache.logging.log4j.Level;
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
