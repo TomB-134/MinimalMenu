@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 public class ConfigHandler {
+    public static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("minimalmenu.json");
+
     public static boolean REMOVE_SPLASH;
     public static boolean REMOVE_REALMS;
     public static boolean REMOVE_LANGUAGE;
@@ -31,10 +33,52 @@ public class ConfigHandler {
     public static boolean ADD_RELOAD_SAVES;
 
     public static void write() {
-        System.out.println("WRITE TO FILE");
+        try (
+            final FileWriter fw = new FileWriter(CONFIG_PATH.toString());
+            final JsonWriter jw = new JsonWriter(fw);
+        ) {
+            jw.setIndent("    ");
+            jw.beginObject()
+                    .name("REMOVE_SPLASH").value(REMOVE_SPLASH)
+                    .name("REMOVE_REALMS").value(REMOVE_REALMS)
+                    .endObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void read() {
-        System.out.println("READ");
+    public static void read() { //Runs on init to get data from json file.
+        if (CONFIG_PATH.toFile().exists()) {
+            try (final FileReader fr = new FileReader(CONFIG_PATH.toString())) {
+                final JsonElement je = new JsonParser().parse(fr);
+                if (!je.isJsonObject()) {
+                    setDefaults();
+                }
+
+                final JsonObject object = je.getAsJsonObject();
+                REMOVE_SPLASH = readBoolean(object, "REMOVE_SPLASH", false);
+                REMOVE_REALMS = readBoolean(object, "REMOVE_REALMS", false);
+
+            } catch (IOException | JsonSyntaxException e) {
+                e.printStackTrace();
+            }
+        } else {
+            setDefaults();
+        }
+    }
+
+    private static void setDefaults() {
+        REMOVE_SPLASH = false;
+        REMOVE_REALMS = false;
+    }
+
+    private static boolean readBoolean(JsonObject json, String key, boolean fallback) {
+        final JsonElement el = json.get(key);
+        if (el == null || !el.isJsonPrimitive()) return fallback;
+        try {
+            return el.getAsBoolean();
+        } catch (ClassCastException e) {
+            return fallback;
+        }
     }
 }

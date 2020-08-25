@@ -15,7 +15,6 @@ public class ConfigScreen {
                 .setTitle(new TranslatableText("config.title"));
 
         builder.setSavingRunnable(() -> {
-            System.out.println("-----------------SAVE-----------------");
             ConfigHandler.write();
         });
 

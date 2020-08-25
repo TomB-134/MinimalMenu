@@ -8,11 +8,6 @@ import java.util.function.Function;
 
 public class ModMenuIntegration implements ModMenuApi {
     @Override
-    public String getModId() {
-        return "minimalmenu";
-    }
-
-    @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         return ConfigScreen::getConfigScreen;
     }
