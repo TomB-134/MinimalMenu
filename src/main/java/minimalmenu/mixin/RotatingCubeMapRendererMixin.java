@@ -11,11 +11,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(net.minecraft.client.gui.RotatingCubeMapRenderer.class)
 @Environment(EnvType.CLIENT)
-public class RotatingCubeMapRenderer {
+public class RotatingCubeMapRendererMixin {
     @Shadow private float time;
 
     @Inject(at = @At("HEAD"), method = "render")
-    public void render(float delta, float alpha, CallbackInfo info) {
+    public void renderHead(float delta, float alpha, CallbackInfo info) {
         if (ConfigHandler.STOP_SPIN) {
             time -= delta;
         }
