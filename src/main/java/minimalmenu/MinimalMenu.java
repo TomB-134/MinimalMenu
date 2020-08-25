@@ -17,7 +17,6 @@ public class MinimalMenu implements ModInitializer {
     public static final String MOD_ID = "minimalmenu";
     public static final String MOD_NAME = "MinimalMenu";
 
-    private static ConfigHandler configHandler;
 
     @Override
     public void onInitialize() {
@@ -28,8 +27,7 @@ public class MinimalMenu implements ModInitializer {
             log(Level.WARN, "Advised removal of Better Mod Button for cleaner look.");
         }
 
-        log(Level.INFO, "Initialising config handler instance.");
-        configHandler = new ConfigHandler();
+        ConfigHandler.read();
     }
 
     public static void log(Level level, String message){
@@ -44,7 +42,7 @@ public class MinimalMenu implements ModInitializer {
         return IDs;
     }
 
-    public static ConfigHandler getConfigHandler() {
-        return configHandler;
+    public static boolean isModInstalled(String MOD_ID) {
+        return allInstalledIDS().contains(MOD_ID);
     }
 }

@@ -1,0 +1,19 @@
+{
+  "config.title": "Minimal Menu Config",
+  "config.category.title": "Title Screen",
+  "config.category.options": "Options Screen",
+  "config.category.pause": "Pause Screen",
+  "config.category.sp": "Singleplayer Screen",
+  "config.option.title.splash": "Remove Splash Text",
+  "config.option.title.realms": "Remove Realms",
+  "config.option.title.accessibility": "Remove Accessibility",
+  "config.option.title.language": "Remove Language",
+  "config.option.title.copy": "Remove Copyright",
+  "config.option.options.realmsNotif": "Remove Realms Notification",
+  "config.option.pause.feedback": "Remove Feedback",
+  "config.option.pause.bugs": "Remove Report Bugs",
+  "config.option.pause.lanSingle": "Remove Open To Lan in Singleplayer",
+  "config.option.pause.lanMulti": "Remove Open To Lan in Multiplayer",
+  "config.option.sp.addSavesFolder": "Add Saves Folder Button",
+  "config.option.sp.reloadSaves": "Add Reload Saves Button"
+}

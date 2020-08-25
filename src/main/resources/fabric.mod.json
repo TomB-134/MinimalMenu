@@ -21,7 +21,10 @@
       "minimalmenu.MinimalMenu"
     ],
     "client": [],
-    "server": []
+    "server": [],
+    "modmenu": [
+      "minimalmenu.config.ModMenuIntegration"
+    ]
   },
   "mixins": [
     "minimalmenu.mixins.json"

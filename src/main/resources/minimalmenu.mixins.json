@@ -4,10 +4,6 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [],
   "client": [
-    "TitleScreenMixin",
-    "OptionsScreenMixin",
-    "SelectWorldScreenMixin",
-    "GameMenuScreenMixin"
   ],
   "server": [],
   "injectors": {
