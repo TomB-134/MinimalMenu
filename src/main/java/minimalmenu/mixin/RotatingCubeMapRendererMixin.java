@@ -12,7 +12,7 @@ public class RotatingCubeMapRendererMixin {
     @Shadow private float time;
 
     @Inject(at = @At("HEAD"), method = "render")
-    public void renderHead(float delta, float alpha, CallbackInfo info) {
+    public void render(float delta, float alpha, CallbackInfo info) {
         if (ConfigHandler.STOP_SPIN) {
             time -= delta;
         }

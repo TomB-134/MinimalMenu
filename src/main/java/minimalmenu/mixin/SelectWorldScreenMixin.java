@@ -1,9 +1,11 @@
 package minimalmenu.mixin;
 
+import minimalmenu.MinimalMenu;
 import minimalmenu.config.ConfigHandler;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.world.SelectWorldScreen;
+import net.minecraft.client.gui.widget.AbstractButtonWidget;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
@@ -25,6 +27,12 @@ public class SelectWorldScreenMixin extends Screen {
 
     @Inject(at = @At("HEAD"), method = "init()V")
     public void init(CallbackInfo info) {
+        if (ConfigHandler.DEV_MODE) {
+            for (AbstractButtonWidget button : this.buttons) {
+                MinimalMenu.printButtonInfo(button, this.buttons);
+            }
+        }
+
         if (ConfigHandler.ADD_SAVES) {
             this.addButton(new ButtonWidget(this.width / 2 - 232, //Create open saves folder button.
                     this.height - 28, 72, 20,
