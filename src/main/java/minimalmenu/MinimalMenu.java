@@ -4,11 +4,13 @@ import minimalmenu.config.ConfigHandler;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
+import net.minecraft.client.gui.widget.AbstractButtonWidget;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MinimalMenu implements ModInitializer {
 
@@ -44,5 +46,13 @@ public class MinimalMenu implements ModInitializer {
 
     public static boolean isModInstalled(String MOD_ID) {
         return allInstalledIDS().contains(MOD_ID);
+    }
+
+    public static void printButtonInfo(AbstractButtonWidget buttonWidget, List<AbstractButtonWidget> buttons) {
+        System.out.println("ded");
+        log(Level.INFO,"-------------------------------------");
+        log(Level.INFO, "Index of button: " + buttons.indexOf(buttonWidget));
+        log(Level.INFO, buttonWidget.getMessage().getString());
+        log(Level.INFO,"-------------------------------------");
     }
 }

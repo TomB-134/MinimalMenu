@@ -23,6 +23,7 @@ public class ConfigScreen {
         ConfigCategory optionsScreen = builder.getOrCreateCategory(new TranslatableText("config.category.options"));
         ConfigCategory pauseScreen = builder.getOrCreateCategory(new TranslatableText("config.category.pause"));
         ConfigCategory singePlayerScreen = builder.getOrCreateCategory(new TranslatableText("config.category.sp"));
+        ConfigCategory otherOptions = builder.getOrCreateCategory(new TranslatableText("config.category.other"));
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
@@ -99,6 +100,13 @@ public class ConfigScreen {
         singePlayerScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.sp.reloadSaves"), ConfigHandler.ADD_RELOAD_SAVES)
                 .setDefaultValue(false)
                 .setSaveConsumer(newValue -> ConfigHandler.ADD_RELOAD_SAVES = newValue)
+                .build());
+
+        //Build other options
+        otherOptions.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.other.dev"), ConfigHandler.DEV_MODE)
+                .setDefaultValue(false)
+                .setTooltip(new TranslatableText("config.option.other.dev.tooltip"))
+                .setSaveConsumer(newValue -> ConfigHandler.DEV_MODE = newValue)
                 .build());
 
         return builder.build();

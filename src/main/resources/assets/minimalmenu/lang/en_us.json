@@ -4,6 +4,7 @@
   "config.category.options": "Options Screen",
   "config.category.pause": "Pause Screen",
   "config.category.sp": "Singleplayer Screen",
+  "config.category.other": "Other Options",
   "config.option.title.splash": "Remove Splash Text",
   "config.option.title.edition": "Remove Java Edition",
   "config.option.title.realms": "Remove Realms",
@@ -18,5 +19,7 @@
   "config.option.pause.lanSingle": "Remove Open To Lan in Singleplayer",
   "config.option.pause.lanMulti": "Remove Open To Lan in Multiplayer",
   "config.option.sp.addSavesFolder": "Add Saves Folder Button",
-  "config.option.sp.reloadSaves": "Add Reload Saves Button"
+  "config.option.sp.reloadSaves": "Add Reload Saves Button",
+  "config.option.other.dev": "Developer Mode",
+  "config.option.other.dev.tooltip": "Used in the development of this mod. Ignore."
 }

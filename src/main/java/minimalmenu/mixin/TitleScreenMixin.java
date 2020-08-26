@@ -1,11 +1,12 @@
 package minimalmenu.mixin;
 
+import minimalmenu.MinimalMenu;
 import minimalmenu.config.ConfigHandler;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.CubeMapRenderer;
 import net.minecraft.client.gui.RotatingCubeMapRenderer;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
+import net.minecraft.client.gui.widget.AbstractButtonWidget;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
@@ -29,6 +30,12 @@ public class TitleScreenMixin extends Screen {
 
     @Inject(at = @At("TAIL"), method = "init()V")
     protected void init(CallbackInfo info) {
+        if (ConfigHandler.DEV_MODE) {
+            for (AbstractButtonWidget button : this.buttons) {
+                MinimalMenu.printButtonInfo(button, this.buttons);
+            }
+        }
+
         if (ConfigHandler.REMOVE_EDITION) {
             EDITION_TITLE_TEXTURE = new Identifier("minimalmenu", "textures/gui/title/edition_empty.png");
         } else {
