@@ -5,6 +5,7 @@
   "config.category.pause": "Pause Screen",
   "config.category.sp": "Singleplayer Screen",
   "config.option.title.splash": "Remove Splash Text",
+  "config.option.title.edition": "Remove Java Edition",
   "config.option.title.realms": "Remove Realms",
   "config.option.title.accessibility": "Remove Accessibility",
   "config.option.title.language": "Remove Language",

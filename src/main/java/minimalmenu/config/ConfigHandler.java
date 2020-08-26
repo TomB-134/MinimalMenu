@@ -16,6 +16,7 @@ public class ConfigHandler {
     public static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("minimalmenu.json");
 
     public static boolean REMOVE_SPLASH;
+    public static boolean REMOVE_EDITION;
     public static boolean REMOVE_REALMS;
     public static boolean REMOVE_LANGUAGE;
     public static boolean REMOVE_ACCESSIBILITY;
@@ -35,12 +36,15 @@ public class ConfigHandler {
     public static void write() {
         try (
             final FileWriter fw = new FileWriter(CONFIG_PATH.toString());
-            final JsonWriter jw = new JsonWriter(fw);
+            final JsonWriter jw = new JsonWriter(fw)
         ) {
             jw.setIndent("    ");
             jw.beginObject()
                     .name("REMOVE_SPLASH").value(REMOVE_SPLASH)
+                    .name("REMOVE_EDITION").value(REMOVE_EDITION)
                     .name("REMOVE_REALMS").value(REMOVE_REALMS)
+                    .name("REMOVE_LANGUAGE").value(REMOVE_LANGUAGE)
+                    .name("REMOVE_ACCESSIBILITY").value(REMOVE_ACCESSIBILITY)
                     .name("REMOVE_COPYRIGHT").value(REMOVE_COPYRIGHT)
                     .name("STOP_SPIN").value(STOP_SPIN)
                     .endObject();
@@ -59,7 +63,10 @@ public class ConfigHandler {
 
                 final JsonObject object = je.getAsJsonObject();
                 REMOVE_SPLASH = readBoolean(object, "REMOVE_SPLASH", false);
+                REMOVE_EDITION = readBoolean(object, "REMOVE_EDITION", false);
                 REMOVE_REALMS = readBoolean(object, "REMOVE_REALMS", false);
+                REMOVE_LANGUAGE = readBoolean(object, "REMOVE_LANGUAGE", false);
+                REMOVE_ACCESSIBILITY = readBoolean(object, "REMOVE_ACCESSIBILITY", false);
                 REMOVE_COPYRIGHT = readBoolean(object, "REMOVE_COPYRIGHT", false);
                 STOP_SPIN = readBoolean(object, "STOP_SPIN", false);
             } catch (IOException | JsonSyntaxException e) {
@@ -72,7 +79,9 @@ public class ConfigHandler {
 
     private static void setDefaults() {
         REMOVE_SPLASH = false;
+        REMOVE_EDITION = false;
         REMOVE_REALMS = false;
+        REMOVE_LANGUAGE = false;
         REMOVE_COPYRIGHT = false;
         STOP_SPIN = false;
     }

@@ -1,12 +1,11 @@
 package minimalmenu.mixin;
 
-import minimalmenu.MinimalMenu;
 import minimalmenu.config.ConfigHandler;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.CubeMapRenderer;
 import net.minecraft.client.gui.RotatingCubeMapRenderer;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
-import net.minecraft.client.gui.widget.AbstractButtonWidget;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,13 +20,21 @@ public class TitleScreenMixin extends Screen {
     @Shadow private String splashText;
     @Shadow private int copyrightTextX;
     @Shadow private final RotatingCubeMapRenderer backgroundRenderer;
+    @Shadow private static Identifier EDITION_TITLE_TEXTURE = new Identifier("textures/gui/title/edition.png");
+
     protected TitleScreenMixin(Text title) {
         super(title);
-        backgroundRenderer = new RotatingCubeMapRenderer(PANORAMA_CUBE_MAP);;
+        backgroundRenderer = new RotatingCubeMapRenderer(PANORAMA_CUBE_MAP);
     }
 
     @Inject(at = @At("TAIL"), method = "init()V")
     protected void init(CallbackInfo info) {
+        if (ConfigHandler.REMOVE_EDITION) {
+            EDITION_TITLE_TEXTURE = new Identifier("minimalmenu", "textures/gui/title/edition_empty.png");
+        } else {
+            EDITION_TITLE_TEXTURE = new Identifier("textures/gui/title/edition.png");
+        }
+
         if (ConfigHandler.REMOVE_SPLASH) {
             splashText = null;
         }
@@ -96,12 +103,12 @@ public class TitleScreenMixin extends Screen {
 //        }
     }
 //
-//    //Removes realms notifications from the screen.
-//    @Inject(at = @At("HEAD"), method = "init()V")
-//    protected void setRealmsNotificationsToFalse(CallbackInfo info) {
-//        if (MinimalMenu.getConfigHandler().DO_REALMS_REMOVAL) {
-//            assert this.client != null;
-//            this.client.options.realmsNotifications = false;
-//        }
-//    }
+    //Removes realms notifications from the screen.
+    @Inject(at = @At("HEAD"), method = "init()V")
+    protected void setRealmsNotificationsToFalse(CallbackInfo info) {
+        if (ConfigHandler.REMOVE_REALMS) {
+            assert this.client != null;
+            this.client.options.realmsNotifications = false;
+        }
+    }
 }

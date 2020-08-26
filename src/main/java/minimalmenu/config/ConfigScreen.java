@@ -32,6 +32,11 @@ public class ConfigScreen {
                 .setSaveConsumer(newValue -> ConfigHandler.REMOVE_SPLASH = newValue)
                 .build());
 
+        titleScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.title.edition"), ConfigHandler.REMOVE_EDITION)
+                .setDefaultValue(false)
+                .setSaveConsumer(newValue -> ConfigHandler.REMOVE_EDITION = newValue)
+                .build());
+
         titleScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.title.realms"), ConfigHandler.REMOVE_REALMS)
                 .setDefaultValue(false)
                 .setSaveConsumer(newValue -> ConfigHandler.REMOVE_REALMS = newValue)
