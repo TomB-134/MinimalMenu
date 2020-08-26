@@ -49,7 +49,6 @@ public class MinimalMenu implements ModInitializer {
     }
 
     public static void printButtonInfo(AbstractButtonWidget buttonWidget, List<AbstractButtonWidget> buttons) {
-        System.out.println("ded");
         log(Level.INFO,"-------------------------------------");
         log(Level.INFO, "Index of button: " + buttons.indexOf(buttonWidget));
         log(Level.INFO, buttonWidget.getMessage().getString());
