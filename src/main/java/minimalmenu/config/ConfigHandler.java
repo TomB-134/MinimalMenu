@@ -22,6 +22,8 @@ public class ConfigHandler {
     public static boolean REMOVE_ACCESSIBILITY;
     public static boolean REMOVE_COPYRIGHT;
     public static boolean STOP_SPIN;
+    public static int X_OFFSET_TITLE;
+    public static int Y_OFFSET_TITLE;
 
     public static boolean REMOVE_REALMS_NOTIF;
 
@@ -49,6 +51,8 @@ public class ConfigHandler {
                     .name("REMOVE_ACCESSIBILITY").value(REMOVE_ACCESSIBILITY)
                     .name("REMOVE_COPYRIGHT").value(REMOVE_COPYRIGHT)
                     .name("STOP_SPIN").value(STOP_SPIN)
+                    .name("X_OFFSET_TITLE").value(X_OFFSET_TITLE)
+                    .name("Y_OFFSET_TITLE").value(Y_OFFSET_TITLE)
                     .name("ADD_SAVES").value(ADD_SAVES)
                     .name("ADD_RELOAD_SAVES").value(ADD_RELOAD_SAVES)
                     .name("DEV_MODE").value(DEV_MODE)
@@ -74,6 +78,8 @@ public class ConfigHandler {
                 REMOVE_ACCESSIBILITY = readBoolean(object, "REMOVE_ACCESSIBILITY", false);
                 REMOVE_COPYRIGHT = readBoolean(object, "REMOVE_COPYRIGHT", false);
                 STOP_SPIN = readBoolean(object, "STOP_SPIN", false);
+                X_OFFSET_TITLE = readInt(object, "X_OFFSET_TITLE", 0);
+                Y_OFFSET_TITLE = readInt(object, "Y_OFFSET_TITLE", 0);
                 ADD_SAVES = readBoolean(object, "ADD_SAVES", false);
                 ADD_RELOAD_SAVES = readBoolean(object, "ADD_RELOAD_SAVES", false);
                 DEV_MODE = readBoolean(object, "DEV_MODE", false);
@@ -92,6 +98,8 @@ public class ConfigHandler {
         REMOVE_LANGUAGE = false;
         REMOVE_COPYRIGHT = false;
         STOP_SPIN = false;
+        X_OFFSET_TITLE = 0;
+        Y_OFFSET_TITLE = 0;
         ADD_SAVES = false;
         ADD_RELOAD_SAVES = false;
         DEV_MODE = false;
@@ -102,6 +110,16 @@ public class ConfigHandler {
         if (el == null || !el.isJsonPrimitive()) return fallback;
         try {
             return el.getAsBoolean();
+        } catch (ClassCastException e) {
+            return fallback;
+        }
+    }
+
+    private static int readInt(JsonObject json, String key, int fallback) {
+        final JsonElement el = json.get(key);
+        if (el == null || !el.isJsonPrimitive()) return fallback;
+        try {
+            return el.getAsInt();
         } catch (ClassCastException e) {
             return fallback;
         }

@@ -13,6 +13,8 @@
   "config.option.title.copy": "Remove Copyright",
   "config.option.title.spin": "Pause Background Panorama",
   "config.option.title.spin.tooltip": "Feature added to aid with taking comparative screenshots consistently. Is buggy/has flickering issues",
+  "config.option.title.xOffset": "X Offset",
+  "config.option.title.yOffset": "Y Offset",
   "config.option.options.realmsNotif": "Remove Realms Notification",
   "config.option.pause.feedback": "Remove Feedback",
   "config.option.pause.bugs": "Remove Report Bugs",

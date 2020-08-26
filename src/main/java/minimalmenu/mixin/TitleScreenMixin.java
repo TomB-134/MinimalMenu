@@ -66,6 +66,9 @@ public class TitleScreenMixin extends Screen {
             if (ConfigHandler.REMOVE_ACCESSIBILITY && buttons.indexOf(buttonWidget) == 7) {
                 buttonWidget.visible = false;
             }
+
+            buttonWidget.x -= ConfigHandler.X_OFFSET_TITLE;
+            buttonWidget.y -= ConfigHandler.Y_OFFSET_TITLE;
         }
     }
 

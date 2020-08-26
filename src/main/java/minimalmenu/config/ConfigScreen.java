@@ -61,6 +61,16 @@ public class ConfigScreen {
                 .setSaveConsumer(newValue -> ConfigHandler.STOP_SPIN = newValue)
                 .build());
 
+        titleScreen.addEntry(entryBuilder.startIntField(new TranslatableText("config.option.title.xOffset"), ConfigHandler.X_OFFSET_TITLE)
+                .setDefaultValue(0)
+                .setSaveConsumer(newValue -> ConfigHandler.X_OFFSET_TITLE = newValue)
+                .build());
+
+        titleScreen.addEntry(entryBuilder.startIntField(new TranslatableText("config.option.title.yOffset"), ConfigHandler.Y_OFFSET_TITLE)
+                .setDefaultValue(0)
+                .setSaveConsumer(newValue -> ConfigHandler.Y_OFFSET_TITLE = newValue)
+                .build());
+
         //Build options screen options
         optionsScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.options.realmsNotif"), ConfigHandler.REMOVE_REALMS_NOTIF)
                 .setDefaultValue(false)
