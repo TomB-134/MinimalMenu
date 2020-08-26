@@ -49,6 +49,8 @@ public class ConfigHandler {
                     .name("REMOVE_ACCESSIBILITY").value(REMOVE_ACCESSIBILITY)
                     .name("REMOVE_COPYRIGHT").value(REMOVE_COPYRIGHT)
                     .name("STOP_SPIN").value(STOP_SPIN)
+                    .name("ADD_SAVES").value(ADD_SAVES)
+                    .name("ADD_RELOAD_SAVES").value(ADD_RELOAD_SAVES)
                     .name("DEV_MODE").value(DEV_MODE)
                     .endObject();
         } catch (IOException e) {
@@ -72,6 +74,8 @@ public class ConfigHandler {
                 REMOVE_ACCESSIBILITY = readBoolean(object, "REMOVE_ACCESSIBILITY", false);
                 REMOVE_COPYRIGHT = readBoolean(object, "REMOVE_COPYRIGHT", false);
                 STOP_SPIN = readBoolean(object, "STOP_SPIN", false);
+                ADD_SAVES = readBoolean(object, "ADD_SAVES", false);
+                ADD_RELOAD_SAVES = readBoolean(object, "ADD_RELOAD_SAVES", false);
                 DEV_MODE = readBoolean(object, "DEV_MODE", false);
             } catch (IOException | JsonSyntaxException e) {
                 e.printStackTrace();
@@ -88,6 +92,8 @@ public class ConfigHandler {
         REMOVE_LANGUAGE = false;
         REMOVE_COPYRIGHT = false;
         STOP_SPIN = false;
+        ADD_SAVES = false;
+        ADD_RELOAD_SAVES = false;
         DEV_MODE = false;
     }
 

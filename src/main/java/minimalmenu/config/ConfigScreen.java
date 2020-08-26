@@ -4,7 +4,6 @@ import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 
 public class ConfigScreen {
@@ -14,9 +13,7 @@ public class ConfigScreen {
                 .setParentScreen(parentScreen)
                 .setTitle(new TranslatableText("config.title"));
 
-        builder.setSavingRunnable(() -> {
-            ConfigHandler.write();
-        });
+        builder.setSavingRunnable(ConfigHandler::write);
 
         //Create categories
         ConfigCategory titleScreen = builder.getOrCreateCategory(new TranslatableText("config.category.title"));

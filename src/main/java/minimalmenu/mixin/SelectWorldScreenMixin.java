@@ -1,6 +1,6 @@
 package minimalmenu.mixin;
 
-import minimalmenu.MinimalMenu;
+import minimalmenu.config.ConfigHandler;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.world.SelectWorldScreen;
@@ -25,7 +25,7 @@ public class SelectWorldScreenMixin extends Screen {
 
     @Inject(at = @At("HEAD"), method = "init()V")
     public void init(CallbackInfo info) {
-        if (MinimalMenu.getConfigHandler().DO_SAVES_FOLDER_BUTTON) {
+        if (ConfigHandler.ADD_SAVES) {
             this.addButton(new ButtonWidget(this.width / 2 - 232, //Create open saves folder button.
                     this.height - 28, 72, 20,
                     new LiteralText("Folder"),
@@ -34,7 +34,7 @@ public class SelectWorldScreenMixin extends Screen {
                         openSavesFolder(this.client); //Open saves folder.
                     })));
         }
-        if (MinimalMenu.getConfigHandler().DO_SAVES_RELOAD_BUTTON) {
+        if (ConfigHandler.ADD_RELOAD_SAVES) {
             this.addButton(new ButtonWidget(this.width / 2 - 232, //Create reload button.
                     this.height - 52, 72, 20, new LiteralText("Reload"),
                     button -> {
