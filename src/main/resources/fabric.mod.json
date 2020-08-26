@@ -31,9 +31,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.9.1",
-    "fabric": "*"
-  },
-  "recommends": {
+    "fabric": "*",
     "modmenu": ">=1.14.0"
   }
 }
