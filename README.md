@@ -16,6 +16,6 @@ Removes the clutter from the title screen. This small lightweight fabric mod get
 4. Launch the game and configure the options you want in config/minimalmenu.json, note that this does require a restart.
 
 #### TODO
-* Add mod menu support.
+* ~~Add mod menu support.~~ - Coming next version
 
 **Warning: This mod may not be compatible with other GUI related mods and is only designed to work with either mod menu or vanilla GUI.**
