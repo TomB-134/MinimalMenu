@@ -6,7 +6,8 @@
   "client": [
     "RotatingCubeMapRendererMixin",
     "TitleScreenMixin",
-    "SelectWorldScreenMixin"
+    "SelectWorldScreenMixin",
+    "OptionsScreenMixin"
   ],
   "server": [],
   "injectors": {
