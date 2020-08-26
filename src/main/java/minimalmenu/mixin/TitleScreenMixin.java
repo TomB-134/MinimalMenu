@@ -49,67 +49,26 @@ public class TitleScreenMixin extends Screen {
         if (ConfigHandler.REMOVE_COPYRIGHT) {
             copyrightTextX = 1000000000;
         }
-        
-//        if (MinimalMenu.getConfigHandler().DO_SPLASH_TEXT_REMOVAL) {
-//            splashText = "";
-//        }
-//        if (MinimalMenu.getConfigHandler().DO_COPYRIGHT_TEXT_REMOVAL) {
-//            copyrightTextX = 1000000000; //Yeah I know....
-//        }
-//
-//        MinimalMenu.getConfigHandler().read();
-//        if (MinimalMenu.allInstalledIDS().contains("modmenu")) { //Do logic for mod menu.
-//            for (AbstractButtonWidget button : this.buttons) {
-//                if (MinimalMenu.getConfigHandler().DO_REALMS_REMOVAL) { //Realms removal logic.
-//                    if (buttons.indexOf(button) == 2) {
-//                        button.visible = false;
-//                    } else if (buttons.indexOf(button) == 3 ||
-//                               buttons.indexOf(button) == 4 ||
-//                               buttons.indexOf(button) == 5 ||
-//                               buttons.indexOf(button) == 6 ||
-//                               buttons.indexOf(button) == 7) {
-//                        button.y -= 24; //Move buttons below realms to fill in the space.
-//                    }
-//                    if (MinimalMenu.getConfigHandler().DO_CENTER_ADJUSTMENT) {
-//                        button.y += 24;
-//                    }
-//                }
-//
-//                if (MinimalMenu.getConfigHandler().DO_LANGUAGE_BUTTON_REMOVAL && buttons.indexOf(button) == 4) {
-//                    button.visible = false;
-//                }
-//
-//                if (MinimalMenu.getConfigHandler().DO_ACCESSIBILITY_BUTTON_REMOVAL && buttons.indexOf(button) == 7) {
-//                    button.visible = false;
-//                }
-//            }
-//        } else { //Do logic for no mod menu installation.
-//            for (AbstractButtonWidget button : this.buttons) {
-//                if (MinimalMenu.getConfigHandler().DO_REALMS_REMOVAL) {
-//                    if (buttons.indexOf(button) == 2) {
-//                        button.visible = false;
-//                    } else if (buttons.indexOf(button) == 3 ||
-//                               buttons.indexOf(button) == 4 ||
-//                               buttons.indexOf(button) == 5 ||
-//                               buttons.indexOf(button) == 6) {
-//                        button.y -= 24; //Move buttons below realms to fill in the space.
-//                    }
-//                    if (MinimalMenu.getConfigHandler().DO_CENTER_ADJUSTMENT) {
-//                        button.y += 24;
-//                    }
-//                }
-//
-//                if (MinimalMenu.getConfigHandler().DO_LANGUAGE_BUTTON_REMOVAL && buttons.indexOf(button) == 3) {
-//                    button.visible = false;
-//                }
-//
-//                if (MinimalMenu.getConfigHandler().DO_ACCESSIBILITY_BUTTON_REMOVAL && buttons.indexOf(button) == 6) {
-//                    button.visible = false;
-//                }
-//            }
-//        }
+
+        for (AbstractButtonWidget buttonWidget : this.buttons) {
+            if (ConfigHandler.REMOVE_REALMS) {
+                if (buttons.indexOf(buttonWidget) == 2) {
+                    buttonWidget.visible = false;
+                } else if (buttons.indexOf(buttonWidget) == 3 || buttons.indexOf(buttonWidget) == 4 || buttons.indexOf(buttonWidget) == 5 || buttons.indexOf(buttonWidget) == 6 || buttons.indexOf(buttonWidget) == 7) {
+                    buttonWidget.y -= 24;
+                }
+            }
+
+            if (ConfigHandler.REMOVE_LANGUAGE && buttons.indexOf(buttonWidget) == 4) {
+                buttonWidget.visible = false;
+            }
+
+            if (ConfigHandler.REMOVE_ACCESSIBILITY && buttons.indexOf(buttonWidget) == 7) {
+                buttonWidget.visible = false;
+            }
+        }
     }
-//
+
     //Removes realms notifications from the screen.
     @Inject(at = @At("HEAD"), method = "init()V")
     protected void setRealmsNotificationsToFalse(CallbackInfo info) {
