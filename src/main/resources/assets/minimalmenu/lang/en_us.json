@@ -20,6 +20,8 @@
   "config.option.pause.bugs": "Remove Report Bugs",
   "config.option.pause.lanSingle": "Remove Open To Lan in Singleplayer",
   "config.option.pause.lanMulti": "Remove Open To Lan in Multiplayer",
+  "config.option.pause.xOffset": "X Offset",
+  "config.option.pause.yOffset": "Y Offset",
   "config.option.sp.addSavesFolder": "Add Saves Folder Button",
   "config.option.sp.reloadSaves": "Add Reload Saves Button",
   "config.option.other.dev": "Developer Mode",

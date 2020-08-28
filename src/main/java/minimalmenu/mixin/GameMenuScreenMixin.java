@@ -26,90 +26,47 @@ public class GameMenuScreenMixin extends Screen {
         }
 
         for (AbstractButtonWidget buttonWidget : this.buttons) {
-            if (ConfigHandler.REMOVE_LANSP && buttons.indexOf(buttonWidget) == 6 && this.client.isInSingleplayer()) {
-                buttonWidget.visible = false;
+            if ((ConfigHandler.REMOVE_LANSP && this.client.isInSingleplayer()) || (ConfigHandler.REMOVE_LANMP && !this.client.isInSingleplayer())) {
+                if (buttons.indexOf(buttonWidget) == 5) {
+                    buttonWidget.y = buttons.get(8).y;
+                }else if (buttons.indexOf(buttonWidget) == 6) {
+                    buttonWidget.visible = false;
+                } else if (buttons.indexOf(buttonWidget) == 7) {
+                    buttonWidget.y -= 24;
+                } else if (buttons.indexOf(buttonWidget) == 8) {
+                    buttonWidget.setWidth(98);
+                    buttonWidget.x = this.width / 2 + 4;
+                }
             }
 
-            if (ConfigHandler.REMOVE_LANMP && buttons.indexOf(buttonWidget) == 6 && !this.client.isInSingleplayer()) {
-                buttonWidget.visible = false;
+            if (ConfigHandler.REMOVE_FEEDBACK) {
+                if (buttons.indexOf(buttonWidget) == 3) {
+                    buttonWidget.visible = false;
+                }
+                if (!ConfigHandler.REMOVE_BUGS && buttons.indexOf(buttonWidget) == 4) {
+                    buttonWidget.setWidth(204);
+                    buttonWidget.x = this.width / 2 - 102;
+                }
             }
+
+            if (ConfigHandler.REMOVE_BUGS) {
+                if (buttons.indexOf(buttonWidget) == 4) {
+                    buttonWidget.visible = false;
+                }
+                if (!ConfigHandler.REMOVE_FEEDBACK && buttons.indexOf(buttonWidget) == 3) {
+                    buttonWidget.setWidth(204);
+                }
+            }
+
+            if (ConfigHandler.REMOVE_FEEDBACK && ConfigHandler.REMOVE_BUGS) {
+                if (buttons.indexOf(buttonWidget) >= 5) {
+                    buttonWidget.y -= 24;
+                }
+            }
+
+            buttonWidget.x -= ConfigHandler.X_OFFSET_PAUSE;
+            buttonWidget.y -= ConfigHandler.Y_OFFSET_PAUSE;
         }
-//        MinimalMenu.getConfigHandler().read();
-//        for (AbstractButtonWidget buttonWidget : this.buttons) {
-//            boolean doRemoval = false;
-//            if (MinimalMenu.getConfigHandler().ONLY_REMOVE_LAN_IF_NOT_CLIENT && !this.client.isInSingleplayer()) {
-//                doRemoval = true;
-//            }
-//            if (!MinimalMenu.getConfigHandler().ONLY_REMOVE_LAN_IF_NOT_CLIENT) {
-//                doRemoval = true;
-//            }
-//
-//            if (this.buttons.indexOf(buttonWidget) == 3 && MinimalMenu.getConfigHandler().DO_FEEDBACK_BUTTON_REMOVAL) {
-//                buttonWidget.visible = false;
-//            }
-//            if (this.buttons.indexOf(buttonWidget) == 4 && MinimalMenu.getConfigHandler().DO_REPORT_BUGS_BUTTON_REMOVAL) {
-//                buttonWidget.visible = false;
-//            }
-//
-//            if (MinimalMenu.getConfigHandler().DO_REPORT_BUGS_BUTTON_REMOVAL && MinimalMenu.getConfigHandler().DO_FEEDBACK_BUTTON_REMOVAL && MinimalMenu.allInstalledIDS().contains("modmenu")) {
-//                if (this.buttons.indexOf(buttonWidget) == 8 || this.buttons.indexOf(buttonWidget) == 7 || this.buttons.indexOf(buttonWidget) == 6 || this.buttons.indexOf(buttonWidget) == 5) {
-//                    buttonWidget.y -= 24;
-//                }
-//
-//                if (MinimalMenu.getConfigHandler().DO_CENTER_ADJUSTMENT) {
-//                    buttonWidget.y += 24;
-//                }
-//            }
-//
-//            if (!MinimalMenu.getConfigHandler().DO_FEEDBACK_BUTTON_REMOVAL && MinimalMenu.getConfigHandler().DO_REPORT_BUGS_BUTTON_REMOVAL && MinimalMenu.allInstalledIDS().contains("modmenu")) {
-//                if (this.buttons.indexOf(buttonWidget) == 8) {
-//                    buttonWidget.setWidth(98);
-//                    buttonWidget.x = this.width / 2 + 4;
-//                }
-//                if (this.buttons.indexOf(buttonWidget) == 8 || this.buttons.indexOf(buttonWidget) == 7 || this.buttons.indexOf(buttonWidget) == 6 || this.buttons.indexOf(buttonWidget) == 5) {
-//                    buttonWidget.y -= 24;
-//                }
-//                if (MinimalMenu.getConfigHandler().DO_CENTER_ADJUSTMENT) {
-//                    buttonWidget.y += 24;
-//                }
-//            }
-//            if (MinimalMenu.getConfigHandler().DO_FEEDBACK_BUTTON_REMOVAL && !MinimalMenu.getConfigHandler().DO_REPORT_BUGS_BUTTON_REMOVAL && MinimalMenu.allInstalledIDS().contains("modmenu")) {
-//                if (this.buttons.indexOf(buttonWidget) == 8) {
-//                    buttonWidget.setWidth(98);
-//                    buttonWidget.x = this.width / 2 - 102;
-//                }
-//                if (this.buttons.indexOf(buttonWidget) == 8 || this.buttons.indexOf(buttonWidget) == 7 || this.buttons.indexOf(buttonWidget) == 6 || this.buttons.indexOf(buttonWidget) == 5) {
-//                    buttonWidget.y -= 24;
-//                }
-//                if (MinimalMenu.getConfigHandler().DO_CENTER_ADJUSTMENT) {
-//                    buttonWidget.y += 24;
-//                }
-//            }
-//
-//            if (MinimalMenu.getConfigHandler().DO_FEEDBACK_BUTTON_REMOVAL && MinimalMenu.getConfigHandler().DO_REPORT_BUGS_BUTTON_REMOVAL && !MinimalMenu.allInstalledIDS().contains("modmenu")) {
-//                if (this.buttons.indexOf(buttonWidget) == 5 || this.buttons.indexOf(buttonWidget) == 6 || this.buttons.indexOf(buttonWidget) == 7) {
-//                    buttonWidget.y -= 24;
-//                }
-//                if (MinimalMenu.getConfigHandler().DO_CENTER_ADJUSTMENT) {
-//                    buttonWidget.y += 24;
-//                }
-//            }
-//
-//            if (MinimalMenu.getConfigHandler().DO_OPEN_TO_LAN_REMOVAL) {
-//                if (this.buttons.indexOf(buttonWidget) == 6) {
-//                    if (doRemoval) {
-//                        buttonWidget.visible = false;
-//                    }
-//                }
-//                if (this.buttons.indexOf(buttonWidget) == 5) {
-//                    if (doRemoval) {
-//                        buttonWidget.setWidth(204);
-//                        buttonWidget.x = this.width / 2 - 102;
-//                    }
-//                }
-//            }
-
-
     }
 }
 

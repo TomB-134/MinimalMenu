@@ -31,6 +31,8 @@ public class ConfigHandler {
     public static boolean REMOVE_BUGS;
     public static boolean REMOVE_LANSP;
     public static boolean REMOVE_LANMP;
+    public static int X_OFFSET_PAUSE;
+    public static int Y_OFFSET_PAUSE;
 
     public static boolean ADD_SAVES;
     public static boolean ADD_RELOAD_SAVES;
@@ -53,8 +55,19 @@ public class ConfigHandler {
                     .name("STOP_SPIN").value(STOP_SPIN)
                     .name("X_OFFSET_TITLE").value(X_OFFSET_TITLE)
                     .name("Y_OFFSET_TITLE").value(Y_OFFSET_TITLE)
+
+                    .name("REMOVE_REALMS_NOTIF").value(REMOVE_REALMS_NOTIF)
+
+                    .name("REMOVE_FEEDBACK").value(REMOVE_FEEDBACK)
+                    .name("REMOVE_BUGS").value(REMOVE_BUGS)
+                    .name("REMOVE_LANSP").value(REMOVE_LANSP)
+                    .name("REMOVE_LANMP").value(REMOVE_LANMP)
+                    .name("X_OFFSET_PAUSE").value(X_OFFSET_PAUSE)
+                    .name("Y_OFFSET_PAUSE").value(Y_OFFSET_PAUSE)
+
                     .name("ADD_SAVES").value(ADD_SAVES)
                     .name("ADD_RELOAD_SAVES").value(ADD_RELOAD_SAVES)
+
                     .name("DEV_MODE").value(DEV_MODE)
                     .endObject();
         } catch (IOException e) {
@@ -80,8 +93,19 @@ public class ConfigHandler {
                 STOP_SPIN = readBoolean(object, "STOP_SPIN", false);
                 X_OFFSET_TITLE = readInt(object, "X_OFFSET_TITLE", 0);
                 Y_OFFSET_TITLE = readInt(object, "Y_OFFSET_TITLE", 0);
+
+                REMOVE_REALMS_NOTIF = readBoolean(object, "REMOVE_REALMS_NOTIF", false);
+
+                REMOVE_FEEDBACK = readBoolean(object, "REMOVE_FEEDBACK", false);
+                REMOVE_BUGS = readBoolean(object, "REMOVE_BUGS", false);
+                REMOVE_LANSP = readBoolean(object, "REMOVE_LANSP", false);
+                REMOVE_LANMP = readBoolean(object, "REMOVE_LANMP", false);
+                X_OFFSET_PAUSE = readInt(object, "X_OFFSET_PAUSE", 0);
+                Y_OFFSET_PAUSE = readInt(object, "Y_OFFSET_PAUSE", 0);
+
                 ADD_SAVES = readBoolean(object, "ADD_SAVES", false);
                 ADD_RELOAD_SAVES = readBoolean(object, "ADD_RELOAD_SAVES", false);
+
                 DEV_MODE = readBoolean(object, "DEV_MODE", false);
             } catch (IOException | JsonSyntaxException e) {
                 e.printStackTrace();
@@ -100,8 +124,18 @@ public class ConfigHandler {
         STOP_SPIN = false;
         X_OFFSET_TITLE = 0;
         Y_OFFSET_TITLE = 0;
+
+        REMOVE_REALMS_NOTIF = false;
+        REMOVE_FEEDBACK = false;
+        REMOVE_BUGS = false;
+        REMOVE_LANSP = false;
+        REMOVE_LANMP = false;
+        X_OFFSET_PAUSE = 0;
+        Y_OFFSET_PAUSE = 0;
+
         ADD_SAVES = false;
         ADD_RELOAD_SAVES = false;
+
         DEV_MODE = false;
     }
 

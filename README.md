@@ -3,6 +3,7 @@
 
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue)
 ![Game version](https://img.shields.io/badge/minecraft-1.16.2-blueviolet)
+![Environment](https://img.shields.io/badge/environment-client-red)
 
 Removes the clutter from the title screen. This small lightweight fabric mod gets rid of the language, accessibility, ect. All are independently configurable. This mod also has compatibility with mod menu and is the new home of OpenSavesFolder, since maintaining two simple GUI mods is more effort than it's worth.
 

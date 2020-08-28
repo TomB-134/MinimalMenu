@@ -98,6 +98,16 @@ public class ConfigScreen {
                 .setSaveConsumer(newValue -> ConfigHandler.REMOVE_LANMP = newValue)
                 .build());
 
+        pauseScreen.addEntry(entryBuilder.startIntField(new TranslatableText("config.option.pause.xOffset"), ConfigHandler.X_OFFSET_PAUSE)
+                .setDefaultValue(0)
+                .setSaveConsumer(newValue -> ConfigHandler.X_OFFSET_PAUSE = newValue)
+                .build());
+
+        pauseScreen.addEntry(entryBuilder.startIntField(new TranslatableText("config.option.pause.yOffset"), ConfigHandler.Y_OFFSET_PAUSE)
+                .setDefaultValue(0)
+                .setSaveConsumer(newValue -> ConfigHandler.Y_OFFSET_PAUSE = newValue)
+                .build());
+
         //Build singleplayer screen options
         singePlayerScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.sp.addSavesFolder"), ConfigHandler.ADD_SAVES)
                 .setDefaultValue(false)

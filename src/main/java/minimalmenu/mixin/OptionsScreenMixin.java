@@ -29,8 +29,11 @@ public class OptionsScreenMixin extends Screen {
 
         if (ConfigHandler.REMOVE_REALMS_NOTIF) {
             for (AbstractButtonWidget button : this.buttons) {
-                if (button instanceof OptionButtonWidget && buttons.indexOf(button) == 1) {
+                if (buttons.indexOf(button) == 1) {
                     button.visible = false;
+                }
+                else if (buttons.indexOf(button) == 0 && this.client.world == null) {
+                    button.setWidth(310);
                 }
             }
         }
