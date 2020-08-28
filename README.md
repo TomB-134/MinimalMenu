@@ -17,7 +17,4 @@ Removes the clutter from the title screen. This small lightweight fabric mod get
 4. Download minimal menu from [the github page](https://github.com/TomB-134/MinimalMenu/releases) and place in your mods folder.
 5. Launch the game and configure the options you want in config/minimalmenu.json, note that this does require a restart.
 
-#### TODO
-* ~~Add mod menu support.~~ - Coming next version
-
 **Warning: This mod may not be compatible with other GUI related mods and is only designed to work with modmenu installed.**
