@@ -29,7 +29,7 @@ public class OptionsScreenMixin extends Screen {
 
         if (ConfigHandler.REMOVE_REALMS_NOTIF) {
             for (AbstractButtonWidget button : this.buttons) {
-                if (buttons.indexOf(button) == 1) {
+                if (buttons.indexOf(button) == 1 && this.client.world == null) {
                     button.visible = false;
                 }
                 else if (buttons.indexOf(button) == 0 && this.client.world == null) {
