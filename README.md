@@ -5,7 +5,7 @@
 ![Game version](https://img.shields.io/badge/minecraft-1.16.2-blueviolet)
 ![Environment](https://img.shields.io/badge/environment-client-red)
 
-Minimal Menu is a small client side mod that allows the user independently toggle main buttons on the title screen and options screens. It also adds features like a button to reload saves, and view saves folder. Designed to work with mod menu and mod menu only.
+Minimal Menu is a small client side mod that allows the user independently toggle many buttons on the title screen and options screens. It also adds features like a button to reload saves, and view saves folder. Designed to work with mod menu and mod menu only.
 
 ![Imgur Image](https://i.imgur.com/PcamapY.jpg)
 

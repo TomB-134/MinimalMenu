@@ -33,23 +33,8 @@ public class MinimalMenu implements ModInitializer {
     public static final String MOD_ID = "minimalmenu";
     public static final String MOD_NAME = "MinimalMenu";
 
-    private static KeyBinding keyBinding;
-
     @Override
     public void onInitialize() {
-        keyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.openmodmenu", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_M, "key.modmenu.category"));
-
-        ClientTickEvents.END_CLIENT_TICK.register(minecraftClient -> {
-            while (keyBinding.wasPressed()) {
-                System.out.println("test");
-                minecraftClient.openScreen(new ModsScreen(minecraftClient.currentScreen));
-            }
-        });
-
-        Registry.SOUND_EVENT.forEach(soundEvent -> {
-            System.out.println(soundEvent.getId());
-        });
-
         ConfigHandler.read();
     }
 
