@@ -34,6 +34,6 @@ Minimal Menu is a small client side mod that allows the user independently toggl
 1. Download and install Fabric from [here](https://fabricmc.net/use)
 2. Download Fabric API mod from [here](https://www.curseforge.com/minecraft/mc-mods/fabric-api) and place in your mods folder.
 3. Download Modmenu from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/modmenu) (Required to be able to configure mod, all settings are off by default.)
-4. Download minimal menu from [the github page](https://github.com/TomB-134/MinimalMenu/releases) and place in your mods folder.
+4. Download Minimal Menu from [the github page](https://github.com/TomB-134/MinimalMenu/releases) or from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/minimal-menu) and place in your mods folder.
 
 **Warning: This mod may not be compatible with other GUI related mods and is only designed to work with modmenu installed.**
