@@ -4,6 +4,7 @@ import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
 
 public class ConfigScreen {
@@ -33,6 +34,16 @@ public class ConfigScreen {
         titleScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.title.edition"), ConfigHandler.REMOVE_EDITION)
                 .setDefaultValue(false)
                 .setSaveConsumer(newValue -> ConfigHandler.REMOVE_EDITION = newValue)
+                .build());
+
+        titleScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.title.singleplayer"), ConfigHandler.REMOVE_SINGLEPLAYER)
+                .setDefaultValue(false)
+                .setSaveConsumer(newValue -> ConfigHandler.REMOVE_SINGLEPLAYER = newValue)
+                .build());
+
+        titleScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.title.multiplayer"), ConfigHandler.REMOVE_MULTIPLAYER)
+                .setDefaultValue(false)
+                .setSaveConsumer(newValue -> ConfigHandler.REMOVE_MULTIPLAYER = newValue)
                 .build());
 
         titleScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.title.realms"), ConfigHandler.REMOVE_REALMS)

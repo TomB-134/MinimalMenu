@@ -17,6 +17,8 @@ public class ConfigHandler {
 
     public static boolean REMOVE_SPLASH;
     public static boolean REMOVE_EDITION;
+    public static boolean REMOVE_SINGLEPLAYER;
+    public static boolean REMOVE_MULTIPLAYER;
     public static boolean REMOVE_REALMS;
     public static boolean REMOVE_LANGUAGE;
     public static boolean REMOVE_ACCESSIBILITY;
@@ -48,6 +50,8 @@ public class ConfigHandler {
             jw.beginObject()
                     .name("REMOVE_SPLASH").value(REMOVE_SPLASH)
                     .name("REMOVE_EDITION").value(REMOVE_EDITION)
+                    .name("REMOVE_SINGLEPLAYER").value(REMOVE_SINGLEPLAYER)
+                    .name("REMOVE_MULTIPLAYER").value(REMOVE_MULTIPLAYER)
                     .name("REMOVE_REALMS").value(REMOVE_REALMS)
                     .name("REMOVE_LANGUAGE").value(REMOVE_LANGUAGE)
                     .name("REMOVE_ACCESSIBILITY").value(REMOVE_ACCESSIBILITY)
@@ -86,6 +90,8 @@ public class ConfigHandler {
                 final JsonObject object = je.getAsJsonObject();
                 REMOVE_SPLASH = readBoolean(object, "REMOVE_SPLASH", false);
                 REMOVE_EDITION = readBoolean(object, "REMOVE_EDITION", false);
+                REMOVE_SINGLEPLAYER = readBoolean(object, "REMOVE_SINGLEPLAYER", false);
+                REMOVE_MULTIPLAYER = readBoolean(object, "REMOVE_MULTIPLAYER", false);
                 REMOVE_REALMS = readBoolean(object, "REMOVE_REALMS", false);
                 REMOVE_LANGUAGE = readBoolean(object, "REMOVE_LANGUAGE", false);
                 REMOVE_ACCESSIBILITY = readBoolean(object, "REMOVE_ACCESSIBILITY", false);
@@ -118,6 +124,8 @@ public class ConfigHandler {
     private static void setDefaults() {
         REMOVE_SPLASH = false;
         REMOVE_EDITION = false;
+        REMOVE_SINGLEPLAYER = false;
+        REMOVE_MULTIPLAYER = false;
         REMOVE_REALMS = false;
         REMOVE_LANGUAGE = false;
         REMOVE_COPYRIGHT = false;

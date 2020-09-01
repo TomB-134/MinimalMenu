@@ -7,6 +7,8 @@
   "config.category.other": "Other Options",
   "config.option.title.splash": "Remove Splash Text",
   "config.option.title.edition": "Remove Java Edition",
+  "config.option.title.singleplayer": "Remove Singleplayer",
+  "config.option.title.multiplayer": "Remove Multiplayer",
   "config.option.title.realms": "Remove Realms",
   "config.option.title.accessibility": "Remove Accessibility",
   "config.option.title.language": "Remove Language",

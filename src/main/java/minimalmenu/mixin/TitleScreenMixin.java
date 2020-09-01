@@ -51,6 +51,22 @@ public class TitleScreenMixin extends Screen {
         }
 
         for (AbstractButtonWidget buttonWidget : this.buttons) {
+            if (ConfigHandler.REMOVE_SINGLEPLAYER) {
+                if (buttons.indexOf(buttonWidget) == 0) {
+                    buttonWidget.visible = false;
+                } else if (buttons.indexOf(buttonWidget) == 1 || buttons.indexOf(buttonWidget) == 2 || buttons.indexOf(buttonWidget) == 3 || buttons.indexOf(buttonWidget) == 4 || buttons.indexOf(buttonWidget) == 5 || buttons.indexOf(buttonWidget) == 6 || buttons.indexOf(buttonWidget) == 7) {
+                    buttonWidget.y -= 24;
+                }
+            }
+
+            if (ConfigHandler.REMOVE_MULTIPLAYER) {
+                if (buttons.indexOf(buttonWidget) == 1) {
+                    buttonWidget.visible = false;
+                } else if (buttons.indexOf(buttonWidget) == 2 || buttons.indexOf(buttonWidget) == 3 || buttons.indexOf(buttonWidget) == 4 || buttons.indexOf(buttonWidget) == 5 || buttons.indexOf(buttonWidget) == 6 || buttons.indexOf(buttonWidget) == 7) {
+                    buttonWidget.y -= 24;
+                }
+            }
+
             if (ConfigHandler.REMOVE_REALMS) {
                 if (buttons.indexOf(buttonWidget) == 2) {
                     buttonWidget.visible = false;
