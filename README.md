@@ -10,7 +10,7 @@ Minimal Menu is a small client side mod that allows the user independently toggl
 ![Imgur Image](https://i.imgur.com/PcamapY.jpg)
 
 
-##Features
+## Features
 * Remove splash text
 * Remove "Java Edition" subtitle
 * Remove singleplayer button
