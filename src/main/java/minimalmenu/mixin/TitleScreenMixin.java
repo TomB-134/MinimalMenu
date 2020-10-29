@@ -1,5 +1,6 @@
 package minimalmenu.mixin;
 
+import com.google.common.collect.Lists;
 import minimalmenu.MinimalMenu;
 import minimalmenu.config.ConfigHandler;
 import net.minecraft.client.gui.CubeMapRenderer;
@@ -8,12 +9,15 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.widget.AbstractButtonWidget;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.List;
 
 @Mixin(TitleScreen.class)
 public class TitleScreenMixin extends Screen {
@@ -50,36 +54,44 @@ public class TitleScreenMixin extends Screen {
             copyrightTextX = 1000000000;
         }
 
-        for (AbstractButtonWidget buttonWidget : this.buttons) {
+        List<String> buttonsTypes = Lists.newArrayList();
+        for (AbstractButtonWidget button : this.buttons) {
+            buttonsTypes.add(((TranslatableText) button.getMessage()).getKey());
+        }
+
+        for (int i = 0; i < this.buttons.size(); i++) {
+            AbstractButtonWidget buttonWidget = this.buttons.get(i);
+            String buttonType = buttonsTypes.get(i);
+
             if (ConfigHandler.REMOVE_SINGLEPLAYER) {
-                if (buttons.indexOf(buttonWidget) == 0) {
+                if (buttonType.equals("menu.singleplayer")) {
                     buttonWidget.visible = false;
-                } else if (buttons.indexOf(buttonWidget) == 1 || buttons.indexOf(buttonWidget) == 2 || buttons.indexOf(buttonWidget) == 3 || buttons.indexOf(buttonWidget) == 4 || buttons.indexOf(buttonWidget) == 5 || buttons.indexOf(buttonWidget) == 6 || buttons.indexOf(buttonWidget) == 7) {
+                } else if (i > buttonsTypes.indexOf("menu.singleplayer")) {
                     buttonWidget.y -= 24;
                 }
             }
 
             if (ConfigHandler.REMOVE_MULTIPLAYER) {
-                if (buttons.indexOf(buttonWidget) == 1) {
+                if (buttonType.equals("menu.multiplayer")) {
                     buttonWidget.visible = false;
-                } else if (buttons.indexOf(buttonWidget) == 2 || buttons.indexOf(buttonWidget) == 3 || buttons.indexOf(buttonWidget) == 4 || buttons.indexOf(buttonWidget) == 5 || buttons.indexOf(buttonWidget) == 6 || buttons.indexOf(buttonWidget) == 7) {
+                } else if (i > buttonsTypes.indexOf("menu.multiplayer")) {
                     buttonWidget.y -= 24;
                 }
             }
 
             if (ConfigHandler.REMOVE_REALMS) {
-                if (buttons.indexOf(buttonWidget) == 2) {
+                if (buttonType.equals("menu.online")) {
                     buttonWidget.visible = false;
-                } else if (buttons.indexOf(buttonWidget) == 3 || buttons.indexOf(buttonWidget) == 4 || buttons.indexOf(buttonWidget) == 5 || buttons.indexOf(buttonWidget) == 6 || buttons.indexOf(buttonWidget) == 7) {
+                } else if (i > buttonsTypes.indexOf("menu.online")) {
                     buttonWidget.y -= 24;
                 }
             }
 
-            if (ConfigHandler.REMOVE_LANGUAGE && buttons.indexOf(buttonWidget) == 4) {
+            if (ConfigHandler.REMOVE_LANGUAGE && buttonType.equals("narrator.button.language")) {
                 buttonWidget.visible = false;
             }
 
-            if (ConfigHandler.REMOVE_ACCESSIBILITY && buttons.indexOf(buttonWidget) == 7) {
+            if (ConfigHandler.REMOVE_ACCESSIBILITY && buttonType.equals("narrator.button.accessibility")) {
                 buttonWidget.visible = false;
             }
 
