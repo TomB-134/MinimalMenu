@@ -21,6 +21,7 @@ public class ConfigScreen {
         ConfigCategory optionsScreen = builder.getOrCreateCategory(new TranslatableText("config.category.options"));
         ConfigCategory pauseScreen = builder.getOrCreateCategory(new TranslatableText("config.category.pause"));
         ConfigCategory singePlayerScreen = builder.getOrCreateCategory(new TranslatableText("config.category.sp"));
+        ConfigCategory inGameScreen = builder.getOrCreateCategory(new TranslatableText("config.category.ingame"));
         ConfigCategory otherOptions = builder.getOrCreateCategory(new TranslatableText("config.category.other"));
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
@@ -128,6 +129,12 @@ public class ConfigScreen {
         singePlayerScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.sp.reloadSaves"), ConfigHandler.ADD_RELOAD_SAVES)
                 .setDefaultValue(false)
                 .setSaveConsumer(newValue -> ConfigHandler.ADD_RELOAD_SAVES = newValue)
+                .build());
+
+        //Build ingame screen options
+        inGameScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.ingame.disablePotionOffset"), ConfigHandler.DISABLE_POTION_OFFSET)
+                .setDefaultValue(false)
+                .setSaveConsumer(newValue -> ConfigHandler.DISABLE_POTION_OFFSET = newValue)
                 .build());
 
         //Build other options

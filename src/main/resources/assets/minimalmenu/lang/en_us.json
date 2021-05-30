@@ -4,6 +4,7 @@
   "config.category.options": "Options Screen",
   "config.category.pause": "Pause Screen",
   "config.category.sp": "Singleplayer Screen",
+  "config.category.ingame": "Ingame Screens",
   "config.category.other": "Other Options",
   "config.option.title.splash": "Remove Splash Text",
   "config.option.title.edition": "Remove Java Edition",
@@ -26,6 +27,8 @@
   "config.option.pause.yOffset": "Y Offset",
   "config.option.sp.addSavesFolder": "Add Saves Folder Button",
   "config.option.sp.reloadSaves": "Add Reload Saves Button",
+  "config.option.ingame.disablePotionOffset": "Disable Potion Offset",
+  "config.option.ingame.disablePotionOffset.tooltip": "Removes the offset from the inventory when a potion effect is applied",
   "config.option.other.dev": "Developer Mode",
   "config.option.other.dev.tooltip": "Used in the development of this mod. Ignore."
 }

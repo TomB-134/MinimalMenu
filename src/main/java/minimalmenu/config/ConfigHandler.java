@@ -39,6 +39,8 @@ public class ConfigHandler {
     public static boolean ADD_SAVES;
     public static boolean ADD_RELOAD_SAVES;
 
+    public static boolean DISABLE_POTION_OFFSET;
+
     public static boolean DEV_MODE;
 
     public static void write() {
@@ -71,6 +73,8 @@ public class ConfigHandler {
 
                     .name("ADD_SAVES").value(ADD_SAVES)
                     .name("ADD_RELOAD_SAVES").value(ADD_RELOAD_SAVES)
+
+                    .name("DISABLE_POTION_OFFSET").value(DISABLE_POTION_OFFSET)
 
                     .name("DEV_MODE").value(DEV_MODE)
                     .endObject();
@@ -111,6 +115,8 @@ public class ConfigHandler {
 
                 ADD_SAVES = readBoolean(object, "ADD_SAVES", false);
                 ADD_RELOAD_SAVES = readBoolean(object, "ADD_RELOAD_SAVES", false);
+
+                DISABLE_POTION_OFFSET = readBoolean(object, "DISABLE_POTION_OFFSET", false);
 
                 DEV_MODE = readBoolean(object, "DEV_MODE", false);
             } catch (IOException | JsonSyntaxException e) {
