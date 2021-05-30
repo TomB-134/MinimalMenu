@@ -26,6 +26,7 @@ Minimal Menu is a small client side mod that allows the user independently toggl
 * Remove the open to lan button in multiplayer
 * Add saves folder button
 * Add reload saves button
+* Added option to disable potion offset in inventory screen (coming to 0.0.6)
 
 
 ## Installation
