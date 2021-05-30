@@ -9,7 +9,8 @@
     "SelectWorldScreenMixin",
     "OptionsScreenMixin",
     "GameMenuScreenMixin",
-    "AbstractInventoryScreenMixin"
+    "AbstractInventoryScreenMixin",
+    "RecipeBookWidgetMixin"
   ],
   "server": [],
   "injectors": {
