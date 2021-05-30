@@ -36,4 +36,8 @@ Minimal Menu is a small client side mod that allows the user independently toggl
 3. Download Modmenu from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/modmenu) (Required to be able to configure mod, all settings are off by default.)
 4. Download Minimal Menu from [the github page](https://github.com/TomB-134/MinimalMenu/releases) or from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/minimal-menu) and place in your mods folder.
 
+## Contributing 
+
+Would love to have people helping out whereever they can, I don't have as much time as I'd like to for this mod and can only really do game version updates. If anyone has any features they'd like added, feel free to make a pull request. -Tom
+
 **Warning: This mod may not be compatible with other GUI related mods and is only designed to work with modmenu installed.**
