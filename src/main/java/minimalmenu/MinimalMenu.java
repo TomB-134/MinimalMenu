@@ -42,18 +42,6 @@ public class MinimalMenu implements ModInitializer {
         LOGGER.log(level, "["+MOD_NAME+"] " + message);
     }
 
-    public static ArrayList<String> allInstalledIDS() {
-        ArrayList<String> IDs = new ArrayList<>();
-        for (ModContainer mod : FabricLoader.getInstance().getAllMods()) {
-            IDs.add(mod.getMetadata().getId());
-        }
-        return IDs;
-    }
-
-    public static boolean isModInstalled(String MOD_ID) {
-        return allInstalledIDS().contains(MOD_ID);
-    }
-
     public static void printButtonInfo(AbstractButtonWidget buttonWidget, List<AbstractButtonWidget> buttons) {
         log(Level.INFO,"-------------------------------------");
         log(Level.INFO, "Index of button: " + buttons.indexOf(buttonWidget));
