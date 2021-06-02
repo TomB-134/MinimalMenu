@@ -1,5 +1,14 @@
 package minimalmenu.mixin;
 
+import java.io.File;
+
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
 import minimalmenu.MinimalMenu;
 import minimalmenu.config.ConfigHandler;
 import net.minecraft.client.MinecraftClient;
@@ -10,22 +19,16 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Util;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import java.io.File;
 
 @Mixin(SelectWorldScreen.class)
-public class SelectWorldScreenMixin extends Screen {
-    @Shadow protected final Screen parent;
+public abstract class SelectWorldScreenMixin extends Screen {
+    @Shadow @Final protected Screen parent;
+    
     protected SelectWorldScreenMixin(Text title, Screen parent) {
         super(title);
-        this.parent = parent;
     }
 
-    @Inject(at = @At("HEAD"), method = "init()V")
+    @Inject(method = "init", at = @At("HEAD"))
     public void init(CallbackInfo info) {
         if (ConfigHandler.DEV_MODE) {
             for (AbstractButtonWidget button : this.buttons) {
@@ -53,7 +56,7 @@ public class SelectWorldScreenMixin extends Screen {
     }
 
     private void openSavesFolder(MinecraftClient client) {
-        File file = new File(client.runDirectory + "\\saves"); //Create saves file from current running directory.
+        File file = client.runDirectory.toPath().resolve("saves").toFile(); //Create saves file from current running directory.
         Util.getOperatingSystem().open(file); //Amazingly, minecraft already has a method for opening a file.
     }
 }

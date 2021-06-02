@@ -1,38 +1,38 @@
 package minimalmenu.mixin;
 
+import java.util.List;
+
 import com.google.common.collect.Lists;
-import minimalmenu.MinimalMenu;
-import minimalmenu.config.ConfigHandler;
-import net.minecraft.client.gui.CubeMapRenderer;
-import net.minecraft.client.gui.RotatingCubeMapRenderer;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.TitleScreen;
-import net.minecraft.client.gui.widget.AbstractButtonWidget;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Identifier;
+
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.List;
+import minimalmenu.MinimalMenu;
+import minimalmenu.config.ConfigHandler;
+import net.minecraft.client.gui.CubeMapRenderer;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.screen.TitleScreen;
+import net.minecraft.client.gui.widget.AbstractButtonWidget;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Identifier;
 
 @Mixin(TitleScreen.class)
-public class TitleScreenMixin extends Screen {
-    @Shadow public static final CubeMapRenderer PANORAMA_CUBE_MAP = new CubeMapRenderer(new Identifier("textures/gui/title/background/panorama"));
+public abstract class TitleScreenMixin extends Screen {
+    @Shadow @Final public static CubeMapRenderer PANORAMA_CUBE_MAP;
     @Shadow private String splashText;
     @Shadow private int copyrightTextX;
-    @Shadow private final RotatingCubeMapRenderer backgroundRenderer;
-    @Shadow private static Identifier EDITION_TITLE_TEXTURE = new Identifier("textures/gui/title/edition.png");
+    @Shadow private static Identifier EDITION_TITLE_TEXTURE;
 
     protected TitleScreenMixin(Text title) {
         super(title);
-        backgroundRenderer = new RotatingCubeMapRenderer(PANORAMA_CUBE_MAP);
     }
 
-    @Inject(at = @At("TAIL"), method = "init()V")
+    @Inject(method = "init", at = @At("TAIL"))
     protected void init(CallbackInfo info) {
         if (ConfigHandler.DEV_MODE) {
             for (AbstractButtonWidget button : this.buttons) {
@@ -101,7 +101,7 @@ public class TitleScreenMixin extends Screen {
     }
 
     //Removes realms notifications from the screen.
-    @Inject(at = @At("HEAD"), method = "init()V")
+    @Inject(method = "init", at = @At("HEAD"))
     protected void setRealmsNotificationsToFalse(CallbackInfo info) {
         if (ConfigHandler.REMOVE_REALMS) {
             assert this.client != null;

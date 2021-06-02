@@ -1,30 +1,14 @@
 package minimalmenu;
 
-import io.github.prospector.modmenu.gui.ModsScreen;
-import minimalmenu.config.ConfigHandler;
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.ModContainer;
-import net.minecraft.client.gui.widget.AbstractButtonWidget;
-import net.minecraft.client.options.KeyBinding;
-import net.minecraft.client.sound.Sound;
-import net.minecraft.client.sound.SoundInstance;
-import net.minecraft.client.sound.SoundManager;
-import net.minecraft.client.sound.WeightedSoundSet;
-import net.minecraft.client.util.InputUtil;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import java.util.List;
+
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jetbrains.annotations.Nullable;
-import org.lwjgl.glfw.GLFW;
 
-import java.util.ArrayList;
-import java.util.List;
+import minimalmenu.config.ConfigHandler;
+import net.fabricmc.api.ModInitializer;
+import net.minecraft.client.gui.widget.AbstractButtonWidget;
 
 public class MinimalMenu implements ModInitializer {
 

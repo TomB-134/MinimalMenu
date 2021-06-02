@@ -1,6 +1,14 @@
 package minimalmenu.mixin;
 
+import java.util.List;
+
 import com.google.common.collect.Lists;
+
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
 import minimalmenu.MinimalMenu;
 import minimalmenu.config.ConfigHandler;
 import net.minecraft.client.gui.screen.GameMenuScreen;
@@ -8,27 +16,20 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.AbstractButtonWidget;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.List;
 
 @Mixin(GameMenuScreen.class)
-public class GameMenuScreenMixin extends Screen {
+public abstract class GameMenuScreenMixin extends Screen {
     protected GameMenuScreenMixin(Text title) {
         super(title);
     }
 
-    @Inject(at = @At("TAIL"), method = "initWidgets()V")
+    @Inject(method = "initWidgets", at = @At("TAIL"))
     private void initWidgets(CallbackInfo info) {
         if (ConfigHandler.DEV_MODE) {
             for (AbstractButtonWidget button : this.buttons) {
                 MinimalMenu.printButtonInfo(button, this.buttons);
             }
         }
-
 
         //Establish a list of strings that holds the message key for each button.
         List<String> buttonsTypes = Lists.newArrayList(); //Create list
@@ -88,4 +89,3 @@ public class GameMenuScreenMixin extends Screen {
         }
     }
 }
-
