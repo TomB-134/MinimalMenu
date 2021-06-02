@@ -8,7 +8,11 @@ import org.apache.logging.log4j.Logger;
 
 import minimalmenu.config.ConfigHandler;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.AbstractButtonWidget;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Language;
 
 public class MinimalMenu implements ModInitializer {
 
@@ -26,10 +30,40 @@ public class MinimalMenu implements ModInitializer {
         LOGGER.log(level, "["+MOD_NAME+"] " + message);
     }
 
-    public static void printButtonInfo(AbstractButtonWidget buttonWidget, List<AbstractButtonWidget> buttons) {
+    public static void printButtonInfo(Screen screen, List<AbstractButtonWidget> buttons) {
         log(Level.INFO,"-------------------------------------");
-        log(Level.INFO, "Index of button: " + buttons.indexOf(buttonWidget));
-        log(Level.INFO, buttonWidget.getMessage().getString());
+        log(Level.INFO, screen.getClass().getName());
+
+        Language language = Language.getInstance();
+        for (AbstractButtonWidget button : buttons) {
+            Text buttonMessage = button.getMessage();
+            String buttonText = buttonMessage.getString();
+            
+            log(Level.INFO,"-------------------------------------");
+            log(Level.INFO, "Button localized: " + buttonText);
+            log(Level.INFO, "Button index:     " + buttons.indexOf(button));
+
+            if (buttonMessage instanceof TranslatableText) {
+                String buttonLangKey = ((TranslatableText) buttonMessage).getKey();
+                String buttonLangText = language.get(buttonLangKey);
+
+                log(Level.INFO, "Button key:       " + buttonLangKey);
+                if (!buttonText.equals(buttonLangText)) {
+                    log(Level.INFO, "Button text:      " + buttonLangText);
+                }
+
+                Object[] textArgs = ((TranslatableText) buttonMessage).getArgs();
+                for (int i = 0; i < textArgs.length; i++) {
+                    Object arg = textArgs[i];
+                    if (arg instanceof TranslatableText) {
+                        String argKey = ((TranslatableText) arg).getKey();
+                        log(Level.INFO, "");
+                        log(Level.INFO, "Text arg " + i + " key:   " + argKey);
+                        log(Level.INFO, "Text arg " + i + " text:  " + language.get(argKey));
+                    }
+                }
+            }
+        }
         log(Level.INFO,"-------------------------------------");
     }
 }

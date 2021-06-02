@@ -21,9 +21,7 @@ public abstract class OptionsScreenMixin extends Screen {
     @Inject(method = "init", at = @At("TAIL"))
     protected void init(CallbackInfo info) {
         if (ConfigHandler.DEV_MODE) {
-            for (AbstractButtonWidget button : this.buttons) {
-                MinimalMenu.printButtonInfo(button, this.buttons);
-            }
+            MinimalMenu.printButtonInfo(this, this.buttons);
         }
 
         if (ConfigHandler.REMOVE_REALMS_NOTIF) {

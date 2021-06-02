@@ -26,9 +26,7 @@ public abstract class GameMenuScreenMixin extends Screen {
     @Inject(method = "initWidgets", at = @At("TAIL"))
     private void initWidgets(CallbackInfo info) {
         if (ConfigHandler.DEV_MODE) {
-            for (AbstractButtonWidget button : this.buttons) {
-                MinimalMenu.printButtonInfo(button, this.buttons);
-            }
+            MinimalMenu.printButtonInfo(this, this.buttons);
         }
 
         //Establish a list of strings that holds the message key for each button.
