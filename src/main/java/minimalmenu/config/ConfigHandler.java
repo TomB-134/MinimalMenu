@@ -25,6 +25,7 @@ public class ConfigHandler {
     public static boolean REMOVE_ACCESSIBILITY;
     public static boolean REMOVE_COPYRIGHT;
     public static boolean STOP_SPIN;
+    public static boolean DIRT_BACKGROUND;
     public static int X_OFFSET_TITLE;
     public static int Y_OFFSET_TITLE;
 
@@ -60,6 +61,7 @@ public class ConfigHandler {
                     .name("REMOVE_ACCESSIBILITY").value(REMOVE_ACCESSIBILITY)
                     .name("REMOVE_COPYRIGHT").value(REMOVE_COPYRIGHT)
                     .name("STOP_SPIN").value(STOP_SPIN)
+                    .name("DIRT_BACKGROUND").value(DIRT_BACKGROUND)
                     .name("X_OFFSET_TITLE").value(X_OFFSET_TITLE)
                     .name("Y_OFFSET_TITLE").value(Y_OFFSET_TITLE)
 
@@ -102,6 +104,7 @@ public class ConfigHandler {
                 REMOVE_ACCESSIBILITY = readBoolean(object, "REMOVE_ACCESSIBILITY", false);
                 REMOVE_COPYRIGHT = readBoolean(object, "REMOVE_COPYRIGHT", false);
                 STOP_SPIN = readBoolean(object, "STOP_SPIN", false);
+                DIRT_BACKGROUND = readBoolean(object, "DIRT_BACKGROUND", false);
                 X_OFFSET_TITLE = readInt(object, "X_OFFSET_TITLE", 0);
                 Y_OFFSET_TITLE = readInt(object, "Y_OFFSET_TITLE", 0);
 
@@ -137,6 +140,7 @@ public class ConfigHandler {
         REMOVE_LANGUAGE = false;
         REMOVE_COPYRIGHT = false;
         STOP_SPIN = false;
+        DIRT_BACKGROUND = false;
         X_OFFSET_TITLE = 0;
         Y_OFFSET_TITLE = 0;
 

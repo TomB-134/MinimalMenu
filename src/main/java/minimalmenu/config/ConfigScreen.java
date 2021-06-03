@@ -72,6 +72,11 @@ public class ConfigScreen {
                 .setSaveConsumer(newValue -> ConfigHandler.STOP_SPIN = newValue)
                 .build());
 
+        titleScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.title.dirtBackground"), ConfigHandler.DIRT_BACKGROUND)
+                .setDefaultValue(false)
+                .setSaveConsumer(newValue -> ConfigHandler.DIRT_BACKGROUND = newValue)
+                .build());
+
         titleScreen.addEntry(entryBuilder.startIntField(new TranslatableText("config.option.title.xOffset"), ConfigHandler.X_OFFSET_TITLE)
                 .setDefaultValue(0)
                 .setSaveConsumer(newValue -> ConfigHandler.X_OFFSET_TITLE = newValue)
