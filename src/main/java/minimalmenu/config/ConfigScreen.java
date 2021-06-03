@@ -4,7 +4,6 @@ import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
 
 public class ConfigScreen {
@@ -71,6 +70,11 @@ public class ConfigScreen {
                 .setDefaultValue(false)
                 .setTooltip(new TranslatableText("config.option.title.spin.tooltip"))
                 .setSaveConsumer(newValue -> ConfigHandler.STOP_SPIN = newValue)
+                .build());
+
+        titleScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.title.dirtBackground"), ConfigHandler.DIRT_BACKGROUND)
+                .setDefaultValue(false)
+                .setSaveConsumer(newValue -> ConfigHandler.DIRT_BACKGROUND = newValue)
                 .build());
 
         titleScreen.addEntry(entryBuilder.startIntField(new TranslatableText("config.option.title.xOffset"), ConfigHandler.X_OFFSET_TITLE)
