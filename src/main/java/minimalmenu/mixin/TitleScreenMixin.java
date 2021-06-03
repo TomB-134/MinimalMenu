@@ -1,10 +1,5 @@
 package minimalmenu.mixin;
 
-import java.util.List;
-
-import com.google.common.collect.Lists;
-
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -13,17 +8,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import minimalmenu.MinimalMenu;
 import minimalmenu.config.ConfigHandler;
-import net.minecraft.client.gui.CubeMapRenderer;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.widget.AbstractButtonWidget;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 
 @Mixin(TitleScreen.class)
 public abstract class TitleScreenMixin extends Screen {
-    @Shadow @Final public static CubeMapRenderer PANORAMA_CUBE_MAP;
     @Shadow private String splashText;
     @Shadow private int copyrightTextX;
     @Shadow private static Identifier EDITION_TITLE_TEXTURE;
@@ -52,49 +44,45 @@ public abstract class TitleScreenMixin extends Screen {
             copyrightTextX = 1000000000;
         }
 
-        List<String> buttonsTypes = Lists.newArrayList();
+        final int spacing = 24;
+        int yOffset = 0;
         for (AbstractButtonWidget button : this.buttons) {
-            buttonsTypes.add(((TranslatableText) button.getMessage()).getKey());
-        }
-
-        for (int i = 0; i < this.buttons.size(); i++) {
-            AbstractButtonWidget buttonWidget = this.buttons.get(i);
-            String buttonType = buttonsTypes.get(i);
-
             if (ConfigHandler.REMOVE_SINGLEPLAYER) {
-                if (buttonType.equals("menu.singleplayer")) {
-                    buttonWidget.visible = false;
-                } else if (i > buttonsTypes.indexOf("menu.singleplayer")) {
-                    buttonWidget.y -= 24;
+                if (MinimalMenu.buttonMatchesKey(button, "menu.singleplayer")) {
+                    button.visible = false;
+                    yOffset += spacing;
                 }
             }
 
             if (ConfigHandler.REMOVE_MULTIPLAYER) {
-                if (buttonType.equals("menu.multiplayer")) {
-                    buttonWidget.visible = false;
-                } else if (i > buttonsTypes.indexOf("menu.multiplayer")) {
-                    buttonWidget.y -= 24;
+                if (MinimalMenu.buttonMatchesKey(button, "menu.multiplayer")) {
+                    button.visible = false;
+                    yOffset += spacing;
                 }
             }
 
             if (ConfigHandler.REMOVE_REALMS) {
-                if (buttonType.equals("menu.online")) {
-                    buttonWidget.visible = false;
-                } else if (i > buttonsTypes.indexOf("menu.online")) {
-                    buttonWidget.y -= 24;
+                if (MinimalMenu.buttonMatchesKey(button, "menu.online")) {
+                    button.visible = false;
+                    yOffset += spacing;
                 }
             }
 
-            if (ConfigHandler.REMOVE_LANGUAGE && buttonType.equals("narrator.button.language")) {
-                buttonWidget.visible = false;
+            if (ConfigHandler.REMOVE_LANGUAGE) {
+                if (MinimalMenu.buttonMatchesKey(button, "narrator.button.language")) {
+                    button.visible = false;
+                }
             }
 
-            if (ConfigHandler.REMOVE_ACCESSIBILITY && buttonType.equals("narrator.button.accessibility")) {
-                buttonWidget.visible = false;
+            if (ConfigHandler.REMOVE_ACCESSIBILITY) {
+                if (MinimalMenu.buttonMatchesKey(button, "narrator.button.accessibility")) {
+                    button.visible = false;
+                }
             }
 
-            buttonWidget.x -= ConfigHandler.X_OFFSET_TITLE;
-            buttonWidget.y -= ConfigHandler.Y_OFFSET_TITLE;
+            button.x -= ConfigHandler.X_OFFSET_TITLE;
+            button.y -= ConfigHandler.Y_OFFSET_TITLE;
+            button.y -= yOffset;
         }
     }
 

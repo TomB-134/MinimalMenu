@@ -26,11 +26,13 @@ public abstract class OptionsScreenMixin extends Screen {
 
         if (ConfigHandler.REMOVE_REALMS_NOTIF) {
             for (AbstractButtonWidget button : this.buttons) {
-                if (buttons.indexOf(button) == 1 && this.client.world == null) {
-                    button.visible = false;
-                }
-                else if (buttons.indexOf(button) == 0 && this.client.world == null) {
-                    button.setWidth(310);
+                if (this.client.world == null) {
+                    if (MinimalMenu.buttonMatchesKey(button, "options.realmsNotifications")) {
+                        button.visible = false;
+                    }
+                    if (MinimalMenu.buttonMatchesKey(button, "options.fov")) {
+                        button.setWidth(310);
+                    }
                 }
             }
         }

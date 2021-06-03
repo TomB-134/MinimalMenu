@@ -66,4 +66,24 @@ public class MinimalMenu implements ModInitializer {
         }
         log(Level.INFO,"-------------------------------------");
     }
+
+    public static boolean buttonMatchesKey(AbstractButtonWidget button, String key) {
+        Text buttonMessage = button.getMessage();
+        if (buttonMessage instanceof TranslatableText) {
+            String buttonKey = ((TranslatableText) buttonMessage).getKey();
+            if (buttonKey.equals(key)) {
+                return true;
+            }
+            Object[] textArgs = ((TranslatableText) buttonMessage).getArgs();
+            for (Object arg : textArgs) {
+                if (arg instanceof TranslatableText) {
+                    String argKey = ((TranslatableText) arg).getKey();
+                    if (argKey.equals(key)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }
