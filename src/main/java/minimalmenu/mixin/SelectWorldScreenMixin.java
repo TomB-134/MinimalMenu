@@ -9,7 +9,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import minimalmenu.MinimalMenu;
 import minimalmenu.config.ConfigHandler;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
@@ -29,10 +28,6 @@ public abstract class SelectWorldScreenMixin extends Screen {
 
     @Inject(method = "init", at = @At("HEAD"))
     public void init(CallbackInfo info) {
-        if (ConfigHandler.DEV_MODE) {
-            MinimalMenu.printButtonInfo(this, this.buttons);
-        }
-
         if (ConfigHandler.ADD_SAVES) {
             this.addButton(new ButtonWidget(this.width / 2 - 232, //Create open saves folder button.
                     this.height - 28, 72, 20,

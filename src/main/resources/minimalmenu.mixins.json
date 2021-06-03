@@ -8,8 +8,8 @@
     "TitleScreenMixin",
     "SelectWorldScreenMixin",
     "OptionsScreenMixin",
-    "GameMenuScreenMixin",
-    "AbstractInventoryScreenMixin"
+    "AbstractInventoryScreenMixin",
+    "ScreenMixin"
   ],
   "server": [],
   "injectors": {
