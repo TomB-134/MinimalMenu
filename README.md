@@ -19,6 +19,7 @@ Minimal Menu is a small client side mod that allows the user independently toggl
 * Remove the language button
 * Remove the copyright text
 * Pause the rendering of the background panorama
+* Dirt menu background for title screen
 * Remove the Realms notification button from the options screen
 * Remove the feedback button from the pause screen
 * Remove the bug report button from the pause screen
@@ -26,7 +27,7 @@ Minimal Menu is a small client side mod that allows the user independently toggl
 * Remove the open to lan button in multiplayer
 * Add saves folder button
 * Add reload saves button
-* Added option to disable potion offset in inventory screen (coming to 0.0.6)
+* Disable potion offset in inventory screen
 
 
 ## Installation
