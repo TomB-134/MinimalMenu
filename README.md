@@ -41,4 +41,7 @@ Minimal Menu is a small client side mod that allows the user independently toggl
 
 Would love to have people helping out whereever they can, I don't have as much time as I'd like to for this mod and can only really do game version updates. If anyone has any features they'd like added, feel free to make a pull request. -Tom
 
+## 1.17
+1.17 version will be released once an issue with Fabric (https://github.com/FabricMC/fabric/pull/1474) is sorted. This mod really is a vanity and does not make the game unplayable without it so it's not as important to update. 
+
 **Warning: This mod may not be compatible with other GUI related mods and is only designed to work with modmenu installed.**
