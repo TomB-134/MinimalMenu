@@ -1,8 +1,5 @@
 package minimalmenu.mixin;
 
-import java.util.List;
-
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -11,25 +8,25 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import minimalmenu.MinimalMenu;
 import minimalmenu.config.ConfigHandler;
+import net.fabricmc.fabric.api.client.screen.v1.Screens;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.AbstractParentElement;
 import net.minecraft.client.gui.Drawable;
 import net.minecraft.client.gui.screen.GameMenuScreen;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.TickableElement;
 import net.minecraft.client.gui.screen.TitleScreen;
-import net.minecraft.client.gui.widget.AbstractButtonWidget;
+import net.minecraft.client.gui.widget.ClickableWidget;
 
 @Mixin(value = Screen.class, priority = 1100)
-public abstract class ScreenMixin extends AbstractParentElement implements TickableElement, Drawable {
-    @Shadow @Final protected List<AbstractButtonWidget> buttons;
+public abstract class ScreenMixin extends AbstractParentElement implements Drawable {
     @Shadow protected MinecraftClient client;
     @Shadow public int width;
+    @Shadow public int height;
 
     @Inject(method = "init", at = @At("RETURN"))
     private void init(MinecraftClient client, int width, int height, CallbackInfo info) {
         if (ConfigHandler.DEV_MODE) {
-            MinimalMenu.printButtonInfo((Screen)(Object)this, this.buttons);
+            MinimalMenu.printButtonInfo((Screen)(Object)this);
         }
 
         if ((Screen)(Object)this instanceof TitleScreen) {
@@ -42,7 +39,7 @@ public abstract class ScreenMixin extends AbstractParentElement implements Ticka
     private void afterTitleScreenInit() {
         final int spacing = 24;
         int yOffset = 0;
-        for (AbstractButtonWidget button : this.buttons) {
+        for (ClickableWidget button : Screens.getButtons((Screen)(Object)this)) {
             if (ConfigHandler.REMOVE_SINGLEPLAYER) {
                 if (MinimalMenu.buttonMatchesKey(button, "menu.singleplayer")) {
                     button.visible = false;
@@ -87,7 +84,7 @@ public abstract class ScreenMixin extends AbstractParentElement implements Ticka
         final int spacing = 24;
         int yOffset = 0;
         boolean removeLan = this.client.isInSingleplayer() ? ConfigHandler.REMOVE_LANSP : ConfigHandler.REMOVE_LANMP;
-        for (AbstractButtonWidget button : this.buttons) {
+        for (ClickableWidget button : Screens.getButtons((Screen)(Object)this)) {
             if (removeLan) {
                 if (MinimalMenu.buttonMatchesKey(button, "menu.shareToLan")) {
                     button.visible = false;

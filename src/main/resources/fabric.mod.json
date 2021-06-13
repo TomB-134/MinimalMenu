@@ -7,7 +7,9 @@
   "authors": [
     "TomB_134"
   ],
-  "contributors": [],
+  "contributors": [
+    "jackassmc"
+  ],
   "contact": {
     "homepage": "https://github.com/TomB-134/MinimalMenu",
     "issues" : "https://github.com/TomB-134/MinimalMenu/issues",
@@ -17,10 +19,10 @@
   "icon": "assets/minimalmenu/icon64.png",
   "environment": "client",
   "entrypoints": {
-    "main": [
+    "main": [],
+    "client": [
       "minimalmenu.MinimalMenu"
     ],
-    "client": [],
     "server": [],
     "modmenu": [
       "minimalmenu.config.ModMenuIntegration"
@@ -30,8 +32,9 @@
     "minimalmenu.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.9.1",
-    "fabric": "*",
-    "modmenu": ">=1.14.0"
+    "fabricloader": ">=0.11.3",
+    "fabric": ">=0.35.0",
+    "modmenu": ">=2.0.1",
+    "java": ">=16"
   }
 }
