@@ -7,14 +7,15 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import minimalmenu.config.ConfigHandler;
-import net.fabricmc.api.ModInitializer;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.screen.v1.Screens;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.AbstractButtonWidget;
+import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Language;
 
-public class MinimalMenu implements ModInitializer {
+public class MinimalMenu implements ClientModInitializer {
 
     public static Logger LOGGER = LogManager.getLogger();
 
@@ -22,7 +23,7 @@ public class MinimalMenu implements ModInitializer {
     public static final String MOD_NAME = "MinimalMenu";
 
     @Override
-    public void onInitialize() {
+    public void onInitializeClient() {
         ConfigHandler.read();
     }
 
@@ -30,12 +31,13 @@ public class MinimalMenu implements ModInitializer {
         LOGGER.log(level, "["+MOD_NAME+"] " + message);
     }
 
-    public static void printButtonInfo(Screen screen, List<AbstractButtonWidget> buttons) {
+    public static void printButtonInfo(Screen screen) {
         log(Level.INFO,"-------------------------------------");
         log(Level.INFO, screen.getClass().getName());
 
         Language language = Language.getInstance();
-        for (AbstractButtonWidget button : buttons) {
+        List<ClickableWidget> buttons = Screens.getButtons((Screen)(Object)screen);
+        for (ClickableWidget button : buttons) {
             Text buttonMessage = button.getMessage();
             String buttonText = buttonMessage.getString();
             
@@ -67,7 +69,7 @@ public class MinimalMenu implements ModInitializer {
         log(Level.INFO,"-------------------------------------");
     }
 
-    public static boolean buttonMatchesKey(AbstractButtonWidget button, String key) {
+    public static boolean buttonMatchesKey(ClickableWidget button, String key) {
         Text buttonMessage = button.getMessage();
         if (buttonMessage instanceof TranslatableText) {
             String buttonKey = ((TranslatableText) buttonMessage).getKey();
