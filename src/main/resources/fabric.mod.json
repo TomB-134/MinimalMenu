@@ -13,9 +13,9 @@
     "huiki"
   ],
   "contact": {
-    "homepage": "https://github.com/TomB-134/MinimalMenu",
-    "issues" : "https://github.com/TomB-134/MinimalMenu/issues",
-    "sources": "https://github.com/TomB-134/MinimalMenu"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/minimal-menu",
+    "sources": "https://github.com/TomB-134/MinimalMenu",
+    "issues": "https://github.com/TomB-134/MinimalMenu/issues"
   },
   "license": "MIT",
   "icon": "assets/minimalmenu/icon64.png",
