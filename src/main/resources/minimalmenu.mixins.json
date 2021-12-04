@@ -1,14 +1,13 @@
 {
   "required": true,
   "package": "minimalmenu.mixin",
-  "compatibilityLevel": "JAVA_16",
+  "compatibilityLevel": "JAVA_17",
   "mixins": [],
   "client": [
     "RotatingCubeMapRendererMixin",
     "TitleScreenMixin",
     "SelectWorldScreenMixin",
     "OptionsScreenMixin",
-    "AbstractInventoryScreenMixin",
     "ScreenMixin"
   ],
   "server": [],

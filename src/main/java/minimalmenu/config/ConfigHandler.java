@@ -7,7 +7,7 @@ import java.nio.file.Path;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import static com.google.gson.JsonParser.parseReader;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonWriter;
 
@@ -89,7 +89,7 @@ public class ConfigHandler {
     public static void read() { //Runs on init to get data from json file.
         if (CONFIG_PATH.toFile().exists()) {
             try (final FileReader fr = new FileReader(CONFIG_PATH.toString())) {
-                final JsonElement je = new JsonParser().parse(fr);
+                final JsonElement je = parseReader(fr);
                 if (!je.isJsonObject()) {
                     setDefaults();
                 }
