@@ -29,7 +29,7 @@ public class ConfigHandler {
     public static int X_OFFSET_TITLE;
     public static int Y_OFFSET_TITLE;
 
-    public static boolean REMOVE_REALMS_NOTIF;
+    public static boolean REMOVE_ONLINE;
 
     public static boolean REMOVE_FEEDBACK;
     public static boolean REMOVE_BUGS;
@@ -65,7 +65,7 @@ public class ConfigHandler {
                     .name("X_OFFSET_TITLE").value(X_OFFSET_TITLE)
                     .name("Y_OFFSET_TITLE").value(Y_OFFSET_TITLE)
 
-                    .name("REMOVE_REALMS_NOTIF").value(REMOVE_REALMS_NOTIF)
+                    .name("REMOVE_ONLINE").value(REMOVE_ONLINE)
 
                     .name("REMOVE_FEEDBACK").value(REMOVE_FEEDBACK)
                     .name("REMOVE_BUGS").value(REMOVE_BUGS)
@@ -108,7 +108,7 @@ public class ConfigHandler {
                 X_OFFSET_TITLE = readInt(object, "X_OFFSET_TITLE", 0);
                 Y_OFFSET_TITLE = readInt(object, "Y_OFFSET_TITLE", 0);
 
-                REMOVE_REALMS_NOTIF = readBoolean(object, "REMOVE_REALMS_NOTIF", false);
+                REMOVE_ONLINE = readBoolean(object, "REMOVE_ONLINE", false);
 
                 REMOVE_FEEDBACK = readBoolean(object, "REMOVE_FEEDBACK", false);
                 REMOVE_BUGS = readBoolean(object, "REMOVE_BUGS", false);
@@ -144,7 +144,7 @@ public class ConfigHandler {
         X_OFFSET_TITLE = 0;
         Y_OFFSET_TITLE = 0;
 
-        REMOVE_REALMS_NOTIF = false;
+        REMOVE_ONLINE = false;
         REMOVE_FEEDBACK = false;
         REMOVE_BUGS = false;
         REMOVE_LANSP = false;

@@ -16,10 +16,10 @@ import net.minecraft.client.gui.widget.ClickableWidget;
 public abstract class OptionsScreenMixin extends ScreenMixin {
     @Inject(method = "init", at = @At("TAIL"))
     protected void init(CallbackInfo info) {
-        if (ConfigHandler.REMOVE_REALMS_NOTIF) {
+        if (ConfigHandler.REMOVE_ONLINE) {
             for (ClickableWidget button : Screens.getButtons((Screen)(Object)this)) {
                 if (this.client.world == null) {
-                    if (MinimalMenu.buttonMatchesKey(button, "options.realmsNotifications")) {
+                    if (MinimalMenu.buttonMatchesKey(button, "options.online")) {
                         button.visible = false;
                     }
                     if (MinimalMenu.buttonMatchesKey(button, "options.fov")) {
