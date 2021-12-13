@@ -19,7 +19,7 @@
   "config.option.title.dirtBackground": "Use Dirt Background",
   "config.option.title.xOffset": "X Offset",
   "config.option.title.yOffset": "Y Offset",
-  "config.option.options.realmsNotif": "Remove Realms Notification",
+  "config.option.options.online": "Remove Online…",
   "config.option.pause.feedback": "Remove Feedback",
   "config.option.pause.bugs": "Remove Report Bugs",
   "config.option.pause.lanSingle": "Remove Open To Lan in Singleplayer",

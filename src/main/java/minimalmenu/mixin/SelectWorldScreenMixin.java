@@ -49,7 +49,7 @@ public abstract class SelectWorldScreenMixin extends ScreenMixin {
                     new LiteralText("Reload"),
                     button -> {
                         assert this.client != null;
-                        this.client.openScreen(new SelectWorldScreen(parent)); //Refresh screen, by creating a new one.
+                        this.client.setScreenAndRender(new SelectWorldScreen(parent)); //Refresh screen, by creating a new one.
                     }));
         }
     }
