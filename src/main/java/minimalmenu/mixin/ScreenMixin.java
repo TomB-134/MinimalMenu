@@ -90,7 +90,6 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
             }
 
             if (MinimalMenu.buttonMatchesKey(button, "common..minecraft")) {
-                System.out.println(posY);
                 button.y = posY;
             } else {
                 button.y -= yOffset;
