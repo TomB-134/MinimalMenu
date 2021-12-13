@@ -37,7 +37,7 @@ public abstract class SelectWorldScreenMixin extends ScreenMixin {
                     (button -> {
                         assert this.client != null;
                         File file = client.runDirectory.toPath().resolve("saves").toFile(); //Create saves file from current running directory.
-                        Util.getOperatingSystem().open(file); //Amazingly, minecraft already has a method for opening a file.
+                        Util.getOperatingSystem().open(file);
                     })));
         }
         if (ConfigHandler.ADD_RELOAD_SAVES) {

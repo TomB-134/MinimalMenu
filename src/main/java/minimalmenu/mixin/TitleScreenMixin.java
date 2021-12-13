@@ -31,7 +31,7 @@ public abstract class TitleScreenMixin extends ScreenMixin {
         }
 
         if (ConfigHandler.REMOVE_COPYRIGHT) {
-            copyrightTextX = 1000000000;
+            copyrightTextX = 1000000000; //Lol
         }
     }
 

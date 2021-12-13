@@ -1,7 +1,10 @@
 package minimalmenu;
 
+import java.io.File;
 import java.util.List;
 
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.util.Util;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -87,5 +90,11 @@ public class MinimalMenu implements ClientModInitializer {
             }
         }
         return false;
+    }
+
+    public static void openMinecraftFolder(MinecraftClient client) {
+        assert client != null;
+        File file = client.runDirectory.toPath().toFile();
+        Util.getOperatingSystem().open(file);
     }
 }

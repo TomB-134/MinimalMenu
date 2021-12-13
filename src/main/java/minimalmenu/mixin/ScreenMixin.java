@@ -1,5 +1,9 @@
 package minimalmenu.mixin;
 
+import net.minecraft.client.gui.Element;
+import net.minecraft.client.gui.Selectable;
+import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.text.LiteralText;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,6 +27,8 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
     @Shadow public int width;
     @Shadow public int height;
 
+    @Shadow protected abstract <T extends Element & Drawable & Selectable> T addDrawableChild(T drawableElement);
+
     @Inject(method = "init", at = @At("RETURN"))
     private void init(MinecraftClient client, int width, int height, CallbackInfo info) {
         if (ConfigHandler.DEV_MODE) {
@@ -36,9 +42,11 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
         }
     }
 
-    private void afterTitleScreenInit() {
+   private void afterTitleScreenInit() {
+
         final int spacing = 24;
         int yOffset = 0;
+        int folderPosY = 0;
         for (ClickableWidget button : Screens.getButtons((Screen)(Object)this)) {
             if (ConfigHandler.REMOVE_SINGLEPLAYER) {
                 if (MinimalMenu.buttonMatchesKey(button, "menu.singleplayer")) {
@@ -71,12 +79,26 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
                 if (MinimalMenu.buttonMatchesKey(button, "narrator.button.accessibility")) {
                     button.visible = false;
                 }
+                if (ConfigHandler.REMOVE_ACCESSIBILITY) {
+                    folderPosY = button.y - yOffset;
+                }
+            }
+            if (MinimalMenu.buttonMatchesKey(button, "modmenu.title")) {
+                if (!ConfigHandler.REMOVE_ACCESSIBILITY) {
+                    folderPosY = button.y - yOffset;
+                }
             }
 
             button.x -= ConfigHandler.X_OFFSET_TITLE;
             button.y -= ConfigHandler.Y_OFFSET_TITLE;
             button.y -= yOffset;
         }
+
+       if (ConfigHandler.ADD_FOLDER_TS) {
+           this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, folderPosY, 20, 20, new LiteralText("."), (button) -> {
+               MinimalMenu.openMinecraftFolder(this.client);
+           }));
+       }
     }
 
     private void afterGameMenuScreenInit() {

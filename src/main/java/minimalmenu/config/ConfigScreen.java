@@ -65,6 +65,11 @@ public class ConfigScreen {
                 .setSaveConsumer(newValue -> ConfigHandler.REMOVE_COPYRIGHT = newValue)
                 .build());
 
+        titleScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.common.addFolder"), ConfigHandler.ADD_FOLDER_TS)
+                .setDefaultValue(false)
+                .setSaveConsumer(newValue -> ConfigHandler.ADD_FOLDER_TS = newValue)
+                .build());
+
         titleScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.title.spin"), ConfigHandler.STOP_SPIN)
                 .setDefaultValue(false)
                 .setTooltip(new TranslatableText("config.option.title.spin.tooltip"))
@@ -111,6 +116,11 @@ public class ConfigScreen {
         pauseScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.pause.lanMulti"), ConfigHandler.REMOVE_LANMP)
                 .setDefaultValue(false)
                 .setSaveConsumer(newValue -> ConfigHandler.REMOVE_LANMP = newValue)
+                .build());
+
+        pauseScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.common.addFolder"), ConfigHandler.ADD_FOLDER_PS)
+                .setDefaultValue(false)
+                .setSaveConsumer(newValue -> ConfigHandler.ADD_FOLDER_PS = newValue)
                 .build());
 
         pauseScreen.addEntry(entryBuilder.startIntField(new TranslatableText("config.option.pause.xOffset"), ConfigHandler.X_OFFSET_PAUSE)

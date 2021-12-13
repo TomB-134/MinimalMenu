@@ -24,6 +24,7 @@ public class ConfigHandler {
     public static boolean REMOVE_LANGUAGE;
     public static boolean REMOVE_ACCESSIBILITY;
     public static boolean REMOVE_COPYRIGHT;
+    public static boolean ADD_FOLDER_TS;
     public static boolean STOP_SPIN;
     public static boolean DIRT_BACKGROUND;
     public static int X_OFFSET_TITLE;
@@ -35,6 +36,7 @@ public class ConfigHandler {
     public static boolean REMOVE_BUGS;
     public static boolean REMOVE_LANSP;
     public static boolean REMOVE_LANMP;
+    public static boolean ADD_FOLDER_PS;
     public static int X_OFFSET_PAUSE;
     public static int Y_OFFSET_PAUSE;
 
@@ -60,6 +62,7 @@ public class ConfigHandler {
                     .name("REMOVE_LANGUAGE").value(REMOVE_LANGUAGE)
                     .name("REMOVE_ACCESSIBILITY").value(REMOVE_ACCESSIBILITY)
                     .name("REMOVE_COPYRIGHT").value(REMOVE_COPYRIGHT)
+                    .name("ADD_FOLDER_TS").value(ADD_FOLDER_TS)
                     .name("STOP_SPIN").value(STOP_SPIN)
                     .name("DIRT_BACKGROUND").value(DIRT_BACKGROUND)
                     .name("X_OFFSET_TITLE").value(X_OFFSET_TITLE)
@@ -71,6 +74,7 @@ public class ConfigHandler {
                     .name("REMOVE_BUGS").value(REMOVE_BUGS)
                     .name("REMOVE_LANSP").value(REMOVE_LANSP)
                     .name("REMOVE_LANMP").value(REMOVE_LANMP)
+                    .name("ADD_FOLDER").value(ADD_FOLDER_PS)
                     .name("X_OFFSET_PAUSE").value(X_OFFSET_PAUSE)
                     .name("Y_OFFSET_PAUSE").value(Y_OFFSET_PAUSE)
 
@@ -103,6 +107,7 @@ public class ConfigHandler {
                 REMOVE_LANGUAGE = readBoolean(object, "REMOVE_LANGUAGE", false);
                 REMOVE_ACCESSIBILITY = readBoolean(object, "REMOVE_ACCESSIBILITY", false);
                 REMOVE_COPYRIGHT = readBoolean(object, "REMOVE_COPYRIGHT", false);
+                ADD_FOLDER_TS = readBoolean(object, "ADD_FOLDER_TS", false);
                 STOP_SPIN = readBoolean(object, "STOP_SPIN", false);
                 DIRT_BACKGROUND = readBoolean(object, "DIRT_BACKGROUND", false);
                 X_OFFSET_TITLE = readInt(object, "X_OFFSET_TITLE", 0);
@@ -114,6 +119,7 @@ public class ConfigHandler {
                 REMOVE_BUGS = readBoolean(object, "REMOVE_BUGS", false);
                 REMOVE_LANSP = readBoolean(object, "REMOVE_LANSP", false);
                 REMOVE_LANMP = readBoolean(object, "REMOVE_LANMP", false);
+                ADD_FOLDER_PS = readBoolean(object, "ADD_FOLDER", false);
                 X_OFFSET_PAUSE = readInt(object, "X_OFFSET_PAUSE", 0);
                 Y_OFFSET_PAUSE = readInt(object, "Y_OFFSET_PAUSE", 0);
 
@@ -139,6 +145,7 @@ public class ConfigHandler {
         REMOVE_REALMS = false;
         REMOVE_LANGUAGE = false;
         REMOVE_COPYRIGHT = false;
+        ADD_FOLDER_TS = false;
         STOP_SPIN = false;
         DIRT_BACKGROUND = false;
         X_OFFSET_TITLE = 0;
@@ -149,6 +156,7 @@ public class ConfigHandler {
         REMOVE_BUGS = false;
         REMOVE_LANSP = false;
         REMOVE_LANMP = false;
+        ADD_FOLDER_PS = false;
         X_OFFSET_PAUSE = 0;
         Y_OFFSET_PAUSE = 0;
 
