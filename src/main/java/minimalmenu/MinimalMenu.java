@@ -19,7 +19,6 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Language;
 
 public class MinimalMenu implements ClientModInitializer {
-
     public static Logger LOGGER = LogManager.getLogger();
 
     public static final String MOD_ID = "minimalmenu";

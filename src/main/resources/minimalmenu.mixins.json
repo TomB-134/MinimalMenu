@@ -9,7 +9,8 @@
     "SelectWorldScreenMixin",
     "OptionsScreenMixin",
     "ScreenMixin",
-    "GameMenuScreenMixin"
+    "GameMenuScreenMixin",
+    "TitleScreenButtonMixin"
   ],
   "server": [],
   "injectors": {

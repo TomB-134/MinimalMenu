@@ -21,13 +21,14 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.widget.ClickableWidget;
 
+import java.util.Collections;
+import java.util.List;
+
 @Mixin(value = Screen.class, priority = 1100)
 public abstract class ScreenMixin extends AbstractParentElement implements Drawable {
     @Shadow protected MinecraftClient client;
     @Shadow public int width;
     @Shadow public int height;
-
-    @Shadow protected abstract <T extends Element & Drawable & Selectable> T addDrawableChild(T drawableElement);
 
     @Inject(method = "init", at = @At("RETURN"))
     private void init(MinecraftClient client, int width, int height, CallbackInfo info) {
@@ -43,29 +44,29 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
     }
 
    private void afterTitleScreenInit() {
-
         final int spacing = 24;
         int yOffset = 0;
-        int folderPosY = 0;
-        for (ClickableWidget button : Screens.getButtons((Screen)(Object)this)) {
+        int posY = 0;
+        List<ClickableWidget> widgetList = Screens.getButtons((Screen)(Object)this);
+        Collections.reverse(widgetList);
+        for (ClickableWidget button : widgetList) {
             if (ConfigHandler.REMOVE_SINGLEPLAYER) {
                 if (MinimalMenu.buttonMatchesKey(button, "menu.singleplayer")) {
                     button.visible = false;
-                    yOffset += spacing;
                 }
             }
 
             if (ConfigHandler.REMOVE_MULTIPLAYER) {
                 if (MinimalMenu.buttonMatchesKey(button, "menu.multiplayer")) {
                     button.visible = false;
-                    yOffset += spacing;
+                    yOffset -= spacing;
                 }
             }
 
             if (ConfigHandler.REMOVE_REALMS) {
                 if (MinimalMenu.buttonMatchesKey(button, "menu.online")) {
                     button.visible = false;
-                    yOffset += spacing;
+                    yOffset -= spacing;
                 }
             }
 
@@ -78,27 +79,26 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
             if (ConfigHandler.REMOVE_ACCESSIBILITY) {
                 if (MinimalMenu.buttonMatchesKey(button, "narrator.button.accessibility")) {
                     button.visible = false;
-                }
-                if (ConfigHandler.REMOVE_ACCESSIBILITY) {
-                    folderPosY = button.y - yOffset;
+                    posY = button.y - yOffset;
                 }
             }
+
             if (MinimalMenu.buttonMatchesKey(button, "modmenu.title")) {
                 if (!ConfigHandler.REMOVE_ACCESSIBILITY) {
-                    folderPosY = button.y - yOffset;
+                    posY = button.y;
                 }
+            }
+
+            if (MinimalMenu.buttonMatchesKey(button, "common..minecraft")) {
+                System.out.println(posY);
+                button.y = posY;
+            } else {
+                button.y -= yOffset;
             }
 
             button.x -= ConfigHandler.X_OFFSET_TITLE;
             button.y -= ConfigHandler.Y_OFFSET_TITLE;
-            button.y -= yOffset;
         }
-
-       if (ConfigHandler.ADD_FOLDER_TS) {
-           this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, folderPosY, 20, 20, new LiteralText("."), (button) -> {
-               MinimalMenu.openMinecraftFolder(this.client);
-           }));
-       }
     }
 
     private void afterGameMenuScreenInit() {

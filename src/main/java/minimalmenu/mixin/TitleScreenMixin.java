@@ -1,5 +1,8 @@
 package minimalmenu.mixin;
 
+import minimalmenu.MinimalMenu;
+import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.text.LiteralText;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;

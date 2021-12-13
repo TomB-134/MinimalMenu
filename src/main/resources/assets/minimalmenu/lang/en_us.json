@@ -32,5 +32,6 @@
   "config.option.ingame.disablePotionOffset.tooltip": "Removes the offset from the inventory when a potion effect is applied",
   "config.option.other.dev": "Developer Mode",
   "config.option.other.dev.tooltip": "Used in the development of this mod. Ignore.",
-  "config.option.common.addFolder": "Add .Minecraft Button"
+  "config.option.common.addFolder": "Add .Minecraft Button",
+  "common..minecraft": "."
 }
