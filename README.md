@@ -38,4 +38,4 @@ Minimal Menu is a small client side mod that allows the user independently toggl
 
 ## Contributing 
 
-Would love to have people helping out whereever they can, I don't have as much time as I'd like to for this mod and can only really do game version updates. If anyone has any features they'd like added, feel free to make a pull request. -Tom
+Would love to have people helping out wherever they can, I don't have as much time as I'd like to for this mod and can only really do game version updates. If anyone has any features they'd like added, feel free to make a pull request. -Tom
