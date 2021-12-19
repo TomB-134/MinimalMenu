@@ -18,7 +18,7 @@ public abstract class OptionsScreenMixin extends ScreenMixin {
     protected void init(CallbackInfo info) {
         if (ConfigHandler.REMOVE_ONLINE) {
             for (ClickableWidget button : Screens.getButtons((Screen)(Object)this)) {
-                if (this.client.world == null) {
+                if (!this.client.isInSingleplayer()) {
                     if (MinimalMenu.buttonMatchesKey(button, "options.online")) {
                         button.visible = false;
                     }
