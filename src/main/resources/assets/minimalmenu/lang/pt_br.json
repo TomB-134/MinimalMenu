@@ -15,11 +15,9 @@
   "config.option.title.language": "Remover botão Idiomas",
   "config.option.title.copy": "Remover aviso de copyright",
   "config.option.title.spin": "Pausar panorama de fundo",
-  "config.option.title.spin.tooltip": "Recurso utilizado para capturar a tela com mais precisão. Não funciona completamente como esperado.",
   "config.option.title.dirtBackground": "Utilizar plano de fundo de terra",
   "config.option.title.xOffset": "Deslocamento em X",
   "config.option.title.yOffset": "Deslocamento em Y",
-  "config.option.options.realmsNotif": "Remover notificações do Realms",
   "config.option.pause.feedback": "Remover botão de feedback",
   "config.option.pause.bugs": "Remover botão para informar erros",
   "config.option.pause.lanSingle": "Remover botão para LAN em Um jogador",
@@ -28,8 +26,6 @@
   "config.option.pause.yOffset": "Deslocamento em Y",
   "config.option.sp.addSavesFolder": "Adicionar botão para pasta de salvamentos",
   "config.option.sp.reloadSaves": "Adicionar botão para recarregar salvamentos",
-  "config.option.ingame.disablePotionOffset": "Desativar deslocamento de poção",
-  "config.option.ingame.disablePotionOffset.tooltip": "Remove o deslocamento do inventário sob o efeito de uma poção.",
   "config.option.other.dev": "Modo desenvolvedor",
   "config.option.other.dev.tooltip": "Utilizado no desenvolvimento do mod. Ignore."
 }
