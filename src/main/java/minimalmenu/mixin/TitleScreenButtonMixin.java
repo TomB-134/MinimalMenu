@@ -5,7 +5,6 @@ import minimalmenu.config.ConfigHandler;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,7 +22,7 @@ public class TitleScreenButtonMixin extends Screen {
     protected void init(CallbackInfo info) {
         if (ConfigHandler.ADD_FOLDER_TS) {
             this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, 0, 20, 20, new TranslatableText("common..minecraft"), (button) -> {
-                MinimalMenu.openMinecraftFolder(this.client);
+                MinimalMenu.processButtonFolderClick(client);
             }));
         }
     }

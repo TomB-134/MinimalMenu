@@ -16,6 +16,8 @@ import net.fabricmc.loader.api.FabricLoader;
 public class ConfigHandler {
     public static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("minimalmenu.json");
 
+    public static boolean OPEN_FOLDER_SCREEN;
+
     public static boolean REMOVE_SPLASH;
     public static boolean REMOVE_EDITION;
     public static boolean REMOVE_SINGLEPLAYER;
@@ -54,6 +56,8 @@ public class ConfigHandler {
         ) {
             jw.setIndent("    ");
             jw.beginObject()
+                    .name("OPEN_FOLDER_SCREEN").value(OPEN_FOLDER_SCREEN)
+
                     .name("REMOVE_SPLASH").value(REMOVE_SPLASH)
                     .name("REMOVE_EDITION").value(REMOVE_EDITION)
                     .name("REMOVE_SINGLEPLAYER").value(REMOVE_SINGLEPLAYER)
@@ -99,6 +103,8 @@ public class ConfigHandler {
                 }
 
                 final JsonObject object = je.getAsJsonObject();
+                OPEN_FOLDER_SCREEN = readBoolean(object, "OPEN_FOLDER_SCREEN", false);
+
                 REMOVE_SPLASH = readBoolean(object, "REMOVE_SPLASH", false);
                 REMOVE_EDITION = readBoolean(object, "REMOVE_EDITION", false);
                 REMOVE_SINGLEPLAYER = readBoolean(object, "REMOVE_SINGLEPLAYER", false);
@@ -138,6 +144,8 @@ public class ConfigHandler {
     }
 
     private static void setDefaults() {
+        OPEN_FOLDER_SCREEN = false;
+
         REMOVE_SPLASH = false;
         REMOVE_EDITION = false;
         REMOVE_SINGLEPLAYER = false;

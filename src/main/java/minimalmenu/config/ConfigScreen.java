@@ -16,6 +16,7 @@ public class ConfigScreen {
         builder.setSavingRunnable(ConfigHandler::write);
 
         //Create categories
+        ConfigCategory generalScreen = builder.getOrCreateCategory(new TranslatableText("config.category.general"));
         ConfigCategory titleScreen = builder.getOrCreateCategory(new TranslatableText("config.category.title"));
         ConfigCategory optionsScreen = builder.getOrCreateCategory(new TranslatableText("config.category.options"));
         ConfigCategory pauseScreen = builder.getOrCreateCategory(new TranslatableText("config.category.pause"));
@@ -23,6 +24,13 @@ public class ConfigScreen {
         ConfigCategory otherOptions = builder.getOrCreateCategory(new TranslatableText("config.category.other"));
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
+
+        //Build general screen options
+        generalScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.general.openFolderScreen"), ConfigHandler.OPEN_FOLDER_SCREEN)
+                .setDefaultValue(false)
+                .setSaveConsumer(newValue -> ConfigHandler.OPEN_FOLDER_SCREEN = newValue)
+                .setTooltip(new TranslatableText("config.option.general.openFolderScreen.tooltip"))
+                .build());
 
         //Build title screen options
         titleScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.title.splash"), ConfigHandler.REMOVE_SPLASH)

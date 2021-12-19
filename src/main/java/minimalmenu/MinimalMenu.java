@@ -3,6 +3,7 @@ package minimalmenu;
 import java.io.File;
 import java.util.List;
 
+import minimalmenu.screens.FolderScreen;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.Util;
 import org.apache.logging.log4j.Level;
@@ -89,6 +90,15 @@ public class MinimalMenu implements ClientModInitializer {
             }
         }
         return false;
+    }
+
+    public static void processButtonFolderClick(MinecraftClient client) {
+        if (ConfigHandler.OPEN_FOLDER_SCREEN) {
+            FolderScreen screen = new FolderScreen(client.currentScreen);
+            client.setScreen(screen);
+        } else {
+            openMinecraftFolder(client);
+        }
     }
 
     public static void openMinecraftFolder(MinecraftClient client) {
