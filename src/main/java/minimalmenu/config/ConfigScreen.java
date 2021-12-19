@@ -80,7 +80,6 @@ public class ConfigScreen {
 
         titleScreen.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("config.option.title.spin"), ConfigHandler.STOP_SPIN)
                 .setDefaultValue(false)
-                .setTooltip(new TranslatableText("config.option.title.spin.tooltip"))
                 .setSaveConsumer(newValue -> ConfigHandler.STOP_SPIN = newValue)
                 .build());
 
