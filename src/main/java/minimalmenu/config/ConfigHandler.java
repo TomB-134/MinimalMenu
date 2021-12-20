@@ -4,12 +4,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
-
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import static com.google.gson.JsonParser.parseReader;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonWriter;
+import static com.google.gson.JsonParser.parseReader;
 
 import net.fabricmc.loader.api.FabricLoader;
 

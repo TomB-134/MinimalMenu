@@ -38,7 +38,6 @@ public class FolderScreen extends Screen {
                 this.addDrawableChild(rootButton);
             }
         }
-
     }
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {

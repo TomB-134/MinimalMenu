@@ -4,7 +4,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
 import minimalmenu.MinimalMenu;
 import minimalmenu.config.ConfigHandler;
 import net.fabricmc.fabric.api.client.screen.v1.Screens;

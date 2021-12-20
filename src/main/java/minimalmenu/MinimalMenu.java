@@ -2,14 +2,12 @@ package minimalmenu;
 
 import java.io.File;
 import java.util.List;
-
 import minimalmenu.screens.FolderScreen;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.Util;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import minimalmenu.config.ConfigHandler;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.screen.v1.Screens;
@@ -94,8 +92,8 @@ public class MinimalMenu implements ClientModInitializer {
 
     public static void processButtonFolderClick(MinecraftClient client) {
         if (ConfigHandler.OPEN_FOLDER_SCREEN) {
-            FolderScreen screen = new FolderScreen(client.currentScreen);
-            client.setScreen(screen);
+            FolderScreen folderScreen = new FolderScreen(client.currentScreen);
+            client.setScreen(folderScreen);
         } else {
             assert client != null;
             File file = client.runDirectory.toPath().toFile();
