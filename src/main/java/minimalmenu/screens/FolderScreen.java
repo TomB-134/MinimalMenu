@@ -21,6 +21,7 @@ public class FolderScreen extends Screen {
         File file = client.runDirectory.toPath().toFile();
         String[] directories = file.list((dir, name) -> new File(dir, name).isDirectory());
 
+        assert directories != null;
         int y = (directories.length * 24) / 2;
         for (int i = 0; i <= directories.length; i++) {
             if (i == 0) {

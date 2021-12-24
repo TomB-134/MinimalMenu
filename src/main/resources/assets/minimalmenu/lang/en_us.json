@@ -1,5 +1,7 @@
 {
   "screen.folders": "Folders in .Minecraft",
+  "screen.singleplayer.saves": "Saves",
+  "screen.singleplayer.reload": "Reload",
   "config.title": "Minimal Menu Config",
   "config.category.general": "General",
   "config.category.title": "Title Screen",

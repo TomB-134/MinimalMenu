@@ -93,7 +93,7 @@ public class MinimalMenu implements ClientModInitializer {
     public static void processButtonFolderClick(MinecraftClient client) {
         if (ConfigHandler.OPEN_FOLDER_SCREEN) {
             FolderScreen folderScreen = new FolderScreen(client.currentScreen);
-            client.setScreen(folderScreen);
+            client.setScreenAndRender(folderScreen);
         } else {
             assert client != null;
             File file = client.runDirectory.toPath().toFile();
