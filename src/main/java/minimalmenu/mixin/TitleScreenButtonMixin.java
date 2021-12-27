@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TitleScreen.class)
-public class TitleScreenButtonMixin extends Screen {
+public abstract class TitleScreenButtonMixin extends Screen {
     protected TitleScreenButtonMixin(Text title) {
         super(title);
     }
@@ -23,6 +23,7 @@ public class TitleScreenButtonMixin extends Screen {
         if (ConfigHandler.ADD_FOLDER_TS) {
             this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, (this.height / 4 + 48) + 84 , 20, 20, new TranslatableText("minimalmenu.common..minecraft"), (button) -> {
                 MinimalMenu.processButtonFolderClick(client);
+
             }));
         }
     }

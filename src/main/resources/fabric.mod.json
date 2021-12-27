@@ -38,6 +38,6 @@
     "fabric": ">=0.35.0",
     "modmenu": ">=2.0.1",
     "java": ">=17",
-    "cloth-config": ">=6.1.48"
+    "cloth-config2": ">=6.1.48"
   }
 }

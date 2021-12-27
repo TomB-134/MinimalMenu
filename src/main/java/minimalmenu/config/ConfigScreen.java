@@ -16,11 +16,11 @@ public class ConfigScreen {
         builder.setSavingRunnable(ConfigHandler::write);
 
         //Create categories
-        ConfigCategory generalScreen = builder.getOrCreateCategory(new TranslatableText("minimalmenu.config.category.general"));
         ConfigCategory titleScreen = builder.getOrCreateCategory(new TranslatableText("minimalmenu.config.category.title"));
-        ConfigCategory optionsScreen = builder.getOrCreateCategory(new TranslatableText("minimalmenu.config.category.options"));
         ConfigCategory pauseScreen = builder.getOrCreateCategory(new TranslatableText("minimalmenu.config.category.pause"));
         ConfigCategory singePlayerScreen = builder.getOrCreateCategory(new TranslatableText("minimalmenu.config.category.sp"));
+        ConfigCategory generalScreen = builder.getOrCreateCategory(new TranslatableText("minimalmenu.config.category.general"));
+        ConfigCategory optionsScreen = builder.getOrCreateCategory(new TranslatableText("minimalmenu.config.category.options"));
         ConfigCategory otherOptions = builder.getOrCreateCategory(new TranslatableText("minimalmenu.config.category.other"));
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
