@@ -21,7 +21,7 @@ public class TitleScreenButtonMixin extends Screen {
     @Inject(method = "init", at = @At("HEAD"))
     protected void init(CallbackInfo info) {
         if (ConfigHandler.ADD_FOLDER_TS) {
-            this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, 0, 20, 20, new TranslatableText("common..minecraft"), (button) -> {
+            this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, (this.height / 4 + 48) + 84 , 20, 20, new TranslatableText("minimalmenu.common..minecraft"), (button) -> {
                 MinimalMenu.processButtonFolderClick(client);
             }));
         }

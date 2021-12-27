@@ -21,7 +21,7 @@ public class GameMenuScreenMixin extends Screen {
     @Inject(method = "initWidgets", at = @At("HEAD"))
     private void initWidgets(CallbackInfo info) {
         if (ConfigHandler.ADD_FOLDER_PS) {
-            this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, this.height / 4 + 120 + -16, 20, 20, new TranslatableText("common..minecraft"), (button) -> {
+            this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, this.height / 4 + 120 + -16, 20, 20, new TranslatableText("minimalmenu.common..minecraft"), (button) -> {
                 MinimalMenu.processButtonFolderClick(client);
             }));
         }

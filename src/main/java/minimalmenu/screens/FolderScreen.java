@@ -1,6 +1,7 @@
 package minimalmenu.screens;
 
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.screen.ScreenTexts;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.LiteralText;
@@ -12,7 +13,7 @@ public class FolderScreen extends Screen {
     private final Screen parent;
 
     public FolderScreen(Screen parent) {
-        super(new TranslatableText("screen.folders"));
+        super(new TranslatableText("minimalmenu.screen.folders"));
         this.parent = parent;
     }
 
@@ -28,7 +29,7 @@ public class FolderScreen extends Screen {
                 this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, (this.height / 2 + (i-1) * 24) - y, 200, 20, new LiteralText(file.getName()), button -> {
                     Util.getOperatingSystem().open(file);
                 }));
-                this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, (this.height / 2 + (directories.length+1) * 24) - y, 200, 20, new LiteralText("Back"), button -> {
+                this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, (this.height / 2 + (directories.length+1) * 24) - y, 200, 20, ScreenTexts.DONE, button -> {
                     client.setScreen(parent);
                 }));
             }

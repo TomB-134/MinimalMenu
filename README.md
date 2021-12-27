@@ -8,6 +8,7 @@ Minimal Menu is a small client side mod that allows the user independently toggl
 
 ![Imgur Image](https://i.imgur.com/PcamapY.jpg)
 
+*Requires [cloth config](https://www.curseforge.com/minecraft/mc-mods/cloth-config) and [mod menu](https://www.curseforge.com/minecraft/mc-mods/modmenu)
 
 ## Features
 * Pause the rendering of the background panorama
@@ -36,4 +37,5 @@ Minimal Menu is a small client side mod that allows the user independently toggl
 1. Download and install Fabric from [here](https://fabricmc.net/use)
 2. Download Fabric API mod from [here](https://www.curseforge.com/minecraft/mc-mods/fabric-api) and place in your mods folder.
 3. Download Modmenu from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/modmenu) (Required to be able to configure mod, all settings are off by default.)
-4. Download Minimal Menu from [the github page](https://github.com/TomB-134/MinimalMenu/releases) or from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/minimal-menu) and place in your mods folder.
+4. Download Cloth config from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/cloth-config)
+5. Download Minimal Menu from [the github page](https://github.com/TomB-134/MinimalMenu/releases) or from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/minimal-menu) and place in your mods folder.

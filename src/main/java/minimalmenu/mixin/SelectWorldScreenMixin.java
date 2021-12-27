@@ -33,7 +33,7 @@ public abstract class SelectWorldScreenMixin extends ScreenMixin {
                     this.width / 2 - 232, //Create open saves folder button.
                     this.height - 28,
                     72, 20,
-                    new TranslatableText("screen.singleplayer.saves"),
+                    new TranslatableText("minimalmenu.screen.singleplayer.saves"),
                     (button -> {
                         assert this.client != null;
                         File file = client.runDirectory.toPath().resolve("saves").toFile(); //Create saves file from current running directory.
@@ -46,7 +46,7 @@ public abstract class SelectWorldScreenMixin extends ScreenMixin {
                     this.width / 2 - 232, //Create reload button.
                     this.height - 52,
                     72, 20,
-                        new TranslatableText("screen.singleplayer.reload"),
+                        new TranslatableText("minimalmenu.screen.singleplayer.reload"),
                     button -> {
                         assert this.client != null;
                         this.client.setScreenAndRender(new SelectWorldScreen(parent)); //Refresh screen, by creating a new one.
