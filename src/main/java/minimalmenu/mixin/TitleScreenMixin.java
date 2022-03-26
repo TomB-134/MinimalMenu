@@ -19,7 +19,7 @@ public abstract class TitleScreenMixin extends ScreenMixin {
     @Shadow @Final @Mutable private static Text COPYRIGHT;
     
     @Inject(method = "init", at = @At("HEAD"))
-    private void removeCopyrightText(CallbackInfo info) {
+    protected void removeCopyrightText(CallbackInfo info) {
         if (ConfigHandler.REMOVE_COPYRIGHT) {
             COPYRIGHT = Text.of(""); //Lol
         }
