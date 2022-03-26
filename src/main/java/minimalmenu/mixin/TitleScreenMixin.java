@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class TitleScreenMixin extends ScreenMixin {
     @Shadow private String splashText;
     @Shadow @Final @Mutable private static Identifier EDITION_TITLE_TEXTURE;
-    @Shadow @Final @Mutable public static Text COPYRIGHT;
+    @Shadow @Final @Mutable private static Text COPYRIGHT;
     
     @Inject(method = "init", at = @At("HEAD"))
     private void removeCopyrightText(CallbackInfo info) {
