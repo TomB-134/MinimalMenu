@@ -21,7 +21,7 @@ public abstract class TitleScreenMixin extends ScreenMixin {
     @Inject(method = "init", at = @At("HEAD"))
     private void removeCopyrightText(CallbackInfo info) {
         if (ConfigHandler.REMOVE_COPYRIGHT) {
-            COPYRIGHT = Text.of(""); // Lol
+            COPYRIGHT = Text.of(""); //Lol
         }
     }
     
