@@ -2,6 +2,7 @@ package minimalmenu.mixin;
 
 import minimalmenu.config.ConfigHandler;
 import net.minecraft.client.gui.screen.TitleScreen;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Final;
@@ -22,6 +23,8 @@ public abstract class TitleScreenMixin extends ScreenMixin {
     protected void removeCopyrightText(CallbackInfo info) {
         if (ConfigHandler.REMOVE_COPYRIGHT) {
             COPYRIGHT = Text.of(""); //Lol
+        } else {
+            COPYRIGHT = new LiteralText("Copyright Mojang AB. Do not distribute!");
         }
     }
     
