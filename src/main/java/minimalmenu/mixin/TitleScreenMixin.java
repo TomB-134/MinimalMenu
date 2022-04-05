@@ -2,6 +2,8 @@ package minimalmenu.mixin;
 
 import minimalmenu.config.ConfigHandler;
 import net.minecraft.client.gui.screen.TitleScreen;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,9 +16,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(TitleScreen.class)
 public abstract class TitleScreenMixin extends ScreenMixin {
     @Shadow private String splashText;
-    @Shadow private int copyrightTextX;
     @Shadow @Final @Mutable private static Identifier EDITION_TITLE_TEXTURE;
-
+    @Shadow @Final @Mutable private static Text COPYRIGHT;
+    
+    @Inject(method = "init", at = @At("HEAD"))
+    protected void removeCopyrightText(CallbackInfo info) {
+        if (ConfigHandler.REMOVE_COPYRIGHT) {
+            COPYRIGHT = Text.of(""); //Lol
+        } else {
+            COPYRIGHT = new LiteralText("Copyright Mojang AB. Do not distribute!");
+        }
+    }
+    
     @Inject(method = "init", at = @At("TAIL"))
     protected void init(CallbackInfo info) {
         if (ConfigHandler.REMOVE_EDITION) {
@@ -27,10 +38,6 @@ public abstract class TitleScreenMixin extends ScreenMixin {
 
         if (ConfigHandler.REMOVE_SPLASH) {
             splashText = null;
-        }
-
-        if (ConfigHandler.REMOVE_COPYRIGHT) {
-            copyrightTextX = 1000000000; //Lol
         }
     }
 
