@@ -2,7 +2,6 @@ package minimalmenu.mixin;
 
 import minimalmenu.config.ConfigHandler;
 import net.minecraft.client.gui.screen.TitleScreen;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Final;
@@ -24,7 +23,7 @@ public abstract class TitleScreenMixin extends ScreenMixin {
         if (ConfigHandler.REMOVE_COPYRIGHT) {
             COPYRIGHT = Text.of(""); //Lol
         } else {
-            COPYRIGHT = new LiteralText("Copyright Mojang AB. Do not distribute!");
+            COPYRIGHT = Text.literal("Copyright Mojang AB. Do not distribute!");
         }
     }
     
@@ -46,7 +45,7 @@ public abstract class TitleScreenMixin extends ScreenMixin {
     protected void setRealmsNotificationsToFalse(CallbackInfo info) {
         if (ConfigHandler.REMOVE_REALMS) {
             assert this.client != null;
-            this.client.options.realmsNotifications = false;
+            this.client.options.getRealmsNotifications().setValue(false);
         }
     }
 }

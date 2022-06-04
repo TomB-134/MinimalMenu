@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 import minimalmenu.screens.FolderScreen;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.text.MutableText;
 import net.minecraft.util.Util;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -14,7 +15,7 @@ import net.fabricmc.fabric.api.client.screen.v1.Screens;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.Language;
 
 public class MinimalMenu implements ClientModInitializer {
@@ -46,8 +47,8 @@ public class MinimalMenu implements ClientModInitializer {
             log(Level.INFO, "Button localized: " + buttonText);
             log(Level.INFO, "Button index:     " + buttons.indexOf(button));
 
-            if (buttonMessage instanceof TranslatableText) {
-                String buttonLangKey = ((TranslatableText) buttonMessage).getKey();
+            if (buttonMessage instanceof TranslatableTextContent) {
+                String buttonLangKey = ((TranslatableTextContent) buttonMessage).getKey();
                 String buttonLangText = language.get(buttonLangKey);
 
                 log(Level.INFO, "Button key:       " + buttonLangKey);
@@ -55,14 +56,16 @@ public class MinimalMenu implements ClientModInitializer {
                     log(Level.INFO, "Button text:      " + buttonLangText);
                 }
 
-                Object[] textArgs = ((TranslatableText) buttonMessage).getArgs();
+                Object[] textArgs = ((TranslatableTextContent) buttonMessage).getArgs();
                 for (int i = 0; i < textArgs.length; i++) {
                     Object arg = textArgs[i];
-                    if (arg instanceof TranslatableText) {
-                        String argKey = ((TranslatableText) arg).getKey();
-                        log(Level.INFO, "");
-                        log(Level.INFO, "Text arg " + i + " key:   " + argKey);
-                        log(Level.INFO, "Text arg " + i + " text:  " + language.get(argKey));
+                    if (arg instanceof TranslatableTextContent) {
+                        String argKey = ((TranslatableTextContent) arg).getKey();
+                        if (ConfigHandler.DEV_MODE) {
+                            log(Level.INFO, "");
+                            log(Level.INFO, "Text arg " + i + " key:   " + argKey);
+                            log(Level.INFO, "Text arg " + i + " text:  " + language.get(argKey));
+                        }
                     }
                 }
             }
@@ -72,15 +75,15 @@ public class MinimalMenu implements ClientModInitializer {
 
     public static boolean buttonMatchesKey(ClickableWidget button, String key) {
         Text buttonMessage = button.getMessage();
-        if (buttonMessage instanceof TranslatableText) {
-            String buttonKey = ((TranslatableText) buttonMessage).getKey();
+        if (buttonMessage instanceof TranslatableTextContent) {
+            String buttonKey = ((TranslatableTextContent) buttonMessage).getKey();
             if (buttonKey.equals(key)) {
                 return true;
             }
-            Object[] textArgs = ((TranslatableText) buttonMessage).getArgs();
+            Object[] textArgs = ((TranslatableTextContent) buttonMessage).getArgs();
             for (Object arg : textArgs) {
-                if (arg instanceof TranslatableText) {
-                    String argKey = ((TranslatableText) arg).getKey();
+                if (arg instanceof TranslatableTextContent) {
+                    String argKey = ((TranslatableTextContent) arg).getKey();
                     if (argKey.equals(key)) {
                         return true;
                     }

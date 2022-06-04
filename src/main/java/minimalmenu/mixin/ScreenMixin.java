@@ -46,6 +46,7 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
         for (ClickableWidget button : widgetList) {
             if (ConfigHandler.REMOVE_SINGLEPLAYER) {
                 if (MinimalMenu.buttonMatchesKey(button, "menu.singleplayer")) {
+                    System.out.println("true");
                     button.visible = false;
                 }
             }

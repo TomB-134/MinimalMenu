@@ -1,11 +1,10 @@
 package minimalmenu.screens;
 
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.ScreenTexts;
+import net.minecraft.screen.ScreenTexts;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Util;
 import java.io.File;
 
@@ -13,7 +12,7 @@ public class FolderScreen extends Screen {
     private final Screen parent;
 
     public FolderScreen(Screen parent) {
-        super(new TranslatableText("minimalmenu.screen.folders"));
+        super(Text.translatable("minimalmenu.screen.folders"));
         this.parent = parent;
     }
 
@@ -26,7 +25,7 @@ public class FolderScreen extends Screen {
         int y = (directories.length * 24) / 2;
         for (int i = 0; i <= directories.length; i++) {
             if (i == 0) {
-                this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, (this.height / 2 + (i-1) * 24) - y, 200, 20, new LiteralText(file.getName()), button -> {
+                this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, (this.height / 2 + (i-1) * 24) - y, 200, 20, Text.literal(file.getName()), button -> {
                     Util.getOperatingSystem().open(file);
                 }));
                 this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, (this.height / 2 + (directories.length+1) * 24) - y, 200, 20, ScreenTexts.DONE, button -> {
@@ -35,7 +34,7 @@ public class FolderScreen extends Screen {
             }
             if (i < directories.length) {
                 int x = i;
-                ButtonWidget buttonWidget = new ButtonWidget(this.width / 2 - 100, (this.height / 2 + i * 24) - y, 200, 20, new LiteralText(directories[x]), (button -> {
+                ButtonWidget buttonWidget = new ButtonWidget(this.width / 2 - 100, (this.height / 2 + i * 24) - y, 200, 20, Text.literal(directories[x]), (button -> {
                     File fileToOpen = new File(file.getAbsolutePath() + File.separator + directories[x]);
                     System.out.println(fileToOpen.getAbsolutePath());
                     Util.getOperatingSystem().open(fileToOpen);
