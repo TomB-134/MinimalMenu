@@ -1,22 +1,18 @@
 package minimalmenu;
 
-import java.io.File;
-import java.util.List;
+import minimalmenu.config.ConfigHandler;
 import minimalmenu.screens.FolderScreen;
+import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.text.MutableText;
+import net.minecraft.client.gui.widget.ClickableWidget;
+import net.minecraft.text.Text;
 import net.minecraft.util.Util;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import minimalmenu.config.ConfigHandler;
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.screen.v1.Screens;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.ClickableWidget;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableTextContent;
-import net.minecraft.util.Language;
+
+import java.io.File;
+import java.util.Objects;
 
 public class MinimalMenu implements ClientModInitializer {
     public static Logger LOGGER = LogManager.getLogger();
@@ -33,64 +29,10 @@ public class MinimalMenu implements ClientModInitializer {
         LOGGER.log(level, "["+MOD_NAME+"] " + message);
     }
 
-    public static void printButtonInfo(Screen screen) {
-        log(Level.INFO,"-------------------------------------");
-        log(Level.INFO, screen.getClass().getName());
-
-        Language language = Language.getInstance();
-        List<ClickableWidget> buttons = Screens.getButtons((Screen)(Object)screen);
-        for (ClickableWidget button : buttons) {
-            Text buttonMessage = button.getMessage();
-            String buttonText = buttonMessage.getString();
-            
-            log(Level.INFO,"-------------------------------------");
-            log(Level.INFO, "Button localized: " + buttonText);
-            log(Level.INFO, "Button index:     " + buttons.indexOf(button));
-
-            if (buttonMessage instanceof TranslatableTextContent) {
-                String buttonLangKey = ((TranslatableTextContent) buttonMessage).getKey();
-                String buttonLangText = language.get(buttonLangKey);
-
-                log(Level.INFO, "Button key:       " + buttonLangKey);
-                if (!buttonText.equals(buttonLangText)) {
-                    log(Level.INFO, "Button text:      " + buttonLangText);
-                }
-
-                Object[] textArgs = ((TranslatableTextContent) buttonMessage).getArgs();
-                for (int i = 0; i < textArgs.length; i++) {
-                    Object arg = textArgs[i];
-                    if (arg instanceof TranslatableTextContent) {
-                        String argKey = ((TranslatableTextContent) arg).getKey();
-                        if (ConfigHandler.DEV_MODE) {
-                            log(Level.INFO, "");
-                            log(Level.INFO, "Text arg " + i + " key:   " + argKey);
-                            log(Level.INFO, "Text arg " + i + " text:  " + language.get(argKey));
-                        }
-                    }
-                }
-            }
-        }
-        log(Level.INFO,"-------------------------------------");
-    }
-
-    public static boolean buttonMatchesKey(ClickableWidget button, String key) {
+    public static boolean buttonMatchesKey (ClickableWidget button, String key) {
         Text buttonMessage = button.getMessage();
-        if (buttonMessage instanceof TranslatableTextContent) {
-            String buttonKey = ((TranslatableTextContent) buttonMessage).getKey();
-            if (buttonKey.equals(key)) {
-                return true;
-            }
-            Object[] textArgs = ((TranslatableTextContent) buttonMessage).getArgs();
-            for (Object arg : textArgs) {
-                if (arg instanceof TranslatableTextContent) {
-                    String argKey = ((TranslatableTextContent) arg).getKey();
-                    if (argKey.equals(key)) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
+        Text keyMessage = Text.translatable(key);
+        return Objects.equals(buttonMessage, keyMessage);
     }
 
     public static void processButtonFolderClick(MinecraftClient client) {

@@ -16,12 +16,11 @@ public class ConfigScreen {
         builder.setSavingRunnable(ConfigHandler::write);
 
         //Create categories
+        ConfigCategory generalScreen = builder.getOrCreateCategory(Text.translatable("minimalmenu.config.category.general"));
         ConfigCategory titleScreen = builder.getOrCreateCategory(Text.translatable("minimalmenu.config.category.title"));
         ConfigCategory pauseScreen = builder.getOrCreateCategory(Text.translatable("minimalmenu.config.category.pause"));
         ConfigCategory singePlayerScreen = builder.getOrCreateCategory(Text.translatable("minimalmenu.config.category.sp"));
-        ConfigCategory generalScreen = builder.getOrCreateCategory(Text.translatable("minimalmenu.config.category.general"));
         ConfigCategory optionsScreen = builder.getOrCreateCategory(Text.translatable("minimalmenu.config.category.options"));
-        ConfigCategory otherOptions = builder.getOrCreateCategory(Text.translatable("minimalmenu.config.category.other"));
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
@@ -149,13 +148,6 @@ public class ConfigScreen {
         singePlayerScreen.addEntry(entryBuilder.startBooleanToggle(Text.translatable("minimalmenu.config.option.sp.reloadSaves"), ConfigHandler.ADD_RELOAD_SAVES)
                 .setDefaultValue(false)
                 .setSaveConsumer(newValue -> ConfigHandler.ADD_RELOAD_SAVES = newValue)
-                .build());
-
-        //Build other options
-        otherOptions.addEntry(entryBuilder.startBooleanToggle(Text.translatable("minimalmenu.config.option.other.dev"), ConfigHandler.DEV_MODE)
-                .setDefaultValue(false)
-                .setTooltip(Text.translatable("minimalmenu.config.option.other.dev.tooltip"))
-                .setSaveConsumer(newValue -> ConfigHandler.DEV_MODE = newValue)
                 .build());
 
         return builder.build();

@@ -26,10 +26,6 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
 
     @Inject(method = "init", at = @At("RETURN"))
     private void init(MinecraftClient client, int width, int height, CallbackInfo info) {
-        if (ConfigHandler.DEV_MODE) {
-            MinimalMenu.printButtonInfo((Screen)(Object)this);
-        }
-
         if ((Screen)(Object)this instanceof TitleScreen) {
             afterTitleScreenInit();
         } else if ((Screen)(Object)this instanceof GameMenuScreen) {
@@ -46,10 +42,10 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
         for (ClickableWidget button : widgetList) {
             if (ConfigHandler.REMOVE_SINGLEPLAYER) {
                 if (MinimalMenu.buttonMatchesKey(button, "menu.singleplayer")) {
-                    System.out.println("true");
                     button.visible = false;
                 }
             }
+
 
             if (ConfigHandler.REMOVE_MULTIPLAYER) {
                 if (MinimalMenu.buttonMatchesKey(button, "menu.multiplayer")) {

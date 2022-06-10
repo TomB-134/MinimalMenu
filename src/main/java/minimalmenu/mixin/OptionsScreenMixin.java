@@ -1,5 +1,6 @@
 package minimalmenu.mixin;
 
+import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -21,8 +22,12 @@ public abstract class OptionsScreenMixin extends ScreenMixin {
                     if (MinimalMenu.buttonMatchesKey(button, "options.online")) {
                         button.visible = false;
                     }
-                    if (MinimalMenu.buttonMatchesKey(button, "options.fov")) {
-                        button.setWidth(310);
+                    if (button.getMessage().getString().contains(":")) {
+                        String[] splitString = button.getMessage().getString().split(":");
+
+                        if (splitString[0].equals(Text.translatable("options.fov").getString())) {
+                            button.setWidth(310);
+                        }
                     }
                 }
             }
