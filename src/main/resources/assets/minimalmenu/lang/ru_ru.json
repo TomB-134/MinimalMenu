@@ -36,5 +36,8 @@
   "minimalmenu.config.option.other.dev": "Режим разработчика",
   "minimalmenu.config.option.other.dev.tooltip": "Используется при разработке этого мода. Игнорируйте.",
   "minimalmenu.config.option.common.addFolder": "Добавить кнопку .minecraft",
-  "minimalmenu.common..minecraft": "."
+  "minimalmenu.common..minecraft": ".",
+
+  "modmenu.summaryTranslation.minimalmenu": "Убирает мусор из меню. Всё настраивается индивидуально для каждого из игровых меню.",
+  "modmenu.descriptionTranslation.minimalmenu": "Убирает мусор из меню. Всё настраивается индивидуально для каждого из игровых меню."
 }

@@ -27,5 +27,8 @@
   "minimalmenu.config.option.sp.addSavesFolder": "Adicionar botão para pasta de salvamentos",
   "minimalmenu.config.option.sp.reloadSaves": "Adicionar botão para recarregar salvamentos",
   "minimalmenu.config.option.other.dev": "Modo desenvolvedor",
-  "minimalmenu.config.option.other.dev.tooltip": "Utilizado no desenvolvimento do mod. Ignore."
+  "minimalmenu.config.option.other.dev.tooltip": "Utilizado no desenvolvimento do mod. Ignore.",
+
+  "modmenu.summaryTranslation.minimalmenu": "Removes the clutter from the title screen. This small lightweight mod gets rid of the language, accessibility, and Minecraft Realm boxes. All are independently configurable.",
+  "modmenu.descriptionTranslation.minimalmenu": "Removes the clutter from the title screen. This small lightweight mod gets rid of the language, accessibility, and Minecraft Realm boxes. All are independently configurable."
 }
