@@ -36,5 +36,8 @@
   "minimalmenu.config.option.other.dev": "Developer Mode",
   "minimalmenu.config.option.other.dev.tooltip": "Used in the development of this mod. Ignore.",
   "minimalmenu.config.option.common.addFolder": "Add .Minecraft Button",
-  "minimalmenu.common..minecraft": "."
+  "minimalmenu.common..minecraft": ".",
+
+  "modmenu.summaryTranslation.minimalmenu": "Removes the clutter from the title screen. This small lightweight mod gets rid of the language, accessibility, and Minecraft Realm boxes. All are independently configurable.",
+  "modmenu.descriptionTranslation.minimalmenu": "Removes the clutter from the title screen. This small lightweight mod gets rid of the language, accessibility, and Minecraft Realm boxes. All are independently configurable."
 }

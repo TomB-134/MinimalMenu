@@ -36,5 +36,8 @@
   "minimalmenu.config.option.other.dev": "调试模式",
   "minimalmenu.config.option.other.dev.tooltip": "用于调试此mod",
   "minimalmenu.config.option.common.addFolder": "添加打开游戏目录按钮",
-  "minimalmenu.common..minecraft": "."
+  "minimalmenu.common..minecraft": ".",
+
+  "modmenu.summaryTranslation.minimalmenu": "Removes the clutter from the title screen. This small lightweight mod gets rid of the language, accessibility, and Minecraft Realm boxes. All are independently configurable.",
+  "modmenu.descriptionTranslation.minimalmenu": "Removes the clutter from the title screen. This small lightweight mod gets rid of the language, accessibility, and Minecraft Realm boxes. All are independently configurable."
 }
