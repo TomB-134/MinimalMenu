@@ -113,15 +113,15 @@ public class ConfigScreen {
                 .setDefaultValue(false)
                 .setSaveConsumer(newValue -> ConfigHandler.REMOVE_BUGS = newValue)
                 .build());
+                
+	pauseScreen.addEntry(entryBuilder.startBooleanToggle(Text.translatable("minimalmenu.config.option.pause.reporting"), ConfigHandler.REMOVE_REPORTING)
+                .setDefaultValue(false)
+                .setSaveConsumer(newValue -> ConfigHandler.REMOVE_REPORTING = newValue)
+                .build());
 
         pauseScreen.addEntry(entryBuilder.startBooleanToggle(Text.translatable("minimalmenu.config.option.pause.lanSingle"), ConfigHandler.REMOVE_LANSP)
                 .setDefaultValue(false)
                 .setSaveConsumer(newValue -> ConfigHandler.REMOVE_LANSP = newValue)
-                .build());
-
-        pauseScreen.addEntry(entryBuilder.startBooleanToggle(Text.translatable("minimalmenu.config.option.pause.lanMulti"), ConfigHandler.REMOVE_LANMP)
-                .setDefaultValue(false)
-                .setSaveConsumer(newValue -> ConfigHandler.REMOVE_LANMP = newValue)
                 .build());
 
         pauseScreen.addEntry(entryBuilder.startBooleanToggle(Text.translatable("minimalmenu.config.option.common.addFolder"), ConfigHandler.ADD_FOLDER_PS)

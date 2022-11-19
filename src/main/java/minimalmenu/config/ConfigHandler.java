@@ -35,8 +35,8 @@ public class ConfigHandler {
 
     public static boolean REMOVE_FEEDBACK;
     public static boolean REMOVE_BUGS;
+    public static boolean REMOVE_REPORTING;
     public static boolean REMOVE_LANSP;
-    public static boolean REMOVE_LANMP;
     public static boolean ADD_FOLDER_PS;
     public static int X_OFFSET_PAUSE;
     public static int Y_OFFSET_PAUSE;
@@ -71,8 +71,8 @@ public class ConfigHandler {
 
                     .name("REMOVE_FEEDBACK").value(REMOVE_FEEDBACK)
                     .name("REMOVE_BUGS").value(REMOVE_BUGS)
+                    .name("REMOVE_REPORTING").value(REMOVE_REPORTING)
                     .name("REMOVE_LANSP").value(REMOVE_LANSP)
-                    .name("REMOVE_LANMP").value(REMOVE_LANMP)
                     .name("ADD_FOLDER").value(ADD_FOLDER_PS)
                     .name("X_OFFSET_PAUSE").value(X_OFFSET_PAUSE)
                     .name("Y_OFFSET_PAUSE").value(Y_OFFSET_PAUSE)
@@ -114,8 +114,8 @@ public class ConfigHandler {
 
                 REMOVE_FEEDBACK = readBoolean(object, "REMOVE_FEEDBACK", false);
                 REMOVE_BUGS = readBoolean(object, "REMOVE_BUGS", false);
+                REMOVE_REPORTING = readBoolean(object, "REMOVE_REPORTING", false);
                 REMOVE_LANSP = readBoolean(object, "REMOVE_LANSP", false);
-                REMOVE_LANMP = readBoolean(object, "REMOVE_LANMP", false);
                 ADD_FOLDER_PS = readBoolean(object, "ADD_FOLDER", false);
                 X_OFFSET_PAUSE = readInt(object, "X_OFFSET_PAUSE", 0);
                 Y_OFFSET_PAUSE = readInt(object, "Y_OFFSET_PAUSE", 0);
@@ -149,8 +149,8 @@ public class ConfigHandler {
         REMOVE_ONLINE = false;
         REMOVE_FEEDBACK = false;
         REMOVE_BUGS = false;
+        REMOVE_REPORTING = false;
         REMOVE_LANSP = false;
-        REMOVE_LANMP = false;
         ADD_FOLDER_PS = false;
         X_OFFSET_PAUSE = 0;
         Y_OFFSET_PAUSE = 0;
