@@ -21,7 +21,6 @@
   "minimalmenu.config.option.pause.feedback": "Remover botão de feedback",
   "minimalmenu.config.option.pause.bugs": "Remover botão para informar erros",
   "minimalmenu.config.option.pause.lanSingle": "Remover botão para LAN em Um jogador",
-  "minimalmenu.config.option.pause.lanMulti": "Remover botão para LAN em Multijogador",
   "minimalmenu.config.option.pause.xOffset": "Deslocamento em X",
   "minimalmenu.config.option.pause.yOffset": "Deslocamento em Y",
   "minimalmenu.config.option.sp.addSavesFolder": "Adicionar botão para pasta de salvamentos",
