@@ -96,12 +96,7 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
         final int spacing = 24;
         int yOffset = 0;
         boolean isInSingleplayer = this.client.isInSingleplayer();
-        boolean isLocalLan;
-        if (this.client.getServer() != null && this.client.getServer().isRemote()) {
-            isLocalLan = true;
-        } else {
-            isLocalLan = false;
-        }
+        boolean isLocalLan = this.client.getServer() != null && this.client.getServer().isRemote();
         for (ClickableWidget button : Screens.getButtons((Screen)(Object)this)) {
             if ((isInSingleplayer && !isLocalLan) && ConfigHandler.REMOVE_LANSP) {
                 if (MinimalMenu.buttonMatchesKey(button, "menu.shareToLan")) {
