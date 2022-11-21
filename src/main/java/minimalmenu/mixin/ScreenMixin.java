@@ -98,7 +98,7 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
         boolean isInSingleplayer = this.client.isInSingleplayer();
         boolean isLocalLan = this.client.getServer() != null && this.client.getServer().isRemote();
         for (ClickableWidget button : Screens.getButtons((Screen)(Object)this)) {
-            if ((isInSingleplayer && !isLocalLan) && ConfigHandler.REMOVE_LANSP) {
+            if (ConfigHandler.REMOVE_LANSP && isInSingleplayer && !isLocalLan) {
                 if (MinimalMenu.buttonMatchesKey(button, "menu.shareToLan")) {
                     button.visible = false;
                 }
@@ -106,7 +106,7 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
                     button.setWidth(buttonWidth);
                     button.x = this.width / 2 - buttonWidth / 2;
                 }
-            } else if ((!isInSingleplayer || isLocalLan) && ConfigHandler.REMOVE_REPORTING) {
+            } else if (ConfigHandler.REMOVE_REPORTING && (!isInSingleplayer || isLocalLan)) {
             	if (MinimalMenu.buttonMatchesKey(button, "menu.playerReporting")) {
                     button.visible = false;
                 }
