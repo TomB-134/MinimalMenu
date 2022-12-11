@@ -28,7 +28,6 @@
   "minimalmenu.config.option.pause.feedback": "Удалить кнопку \"Оставить отзыв\"",
   "minimalmenu.config.option.pause.bugs": "Удалить кнопку \"Нашли ошибку?\"",
   "minimalmenu.config.option.pause.lanSingle": "Удалить кнопку \"Открыть для сети\" в одиночной игре",
-  "minimalmenu.config.option.pause.lanMulti": "Удалить кнопку \"Открыть для сети\" в многопользовательской игре",
   "minimalmenu.config.option.pause.xOffset": "Смещение по X",
   "minimalmenu.config.option.pause.yOffset": "Смещение по Y",
   "minimalmenu.config.option.sp.addSavesFolder": "Добавить кнопку папки сохранений",

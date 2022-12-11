@@ -28,7 +28,6 @@
   "minimalmenu.config.option.pause.feedback": "移除报告错误按钮",
   "minimalmenu.config.option.pause.bugs": "移除报告错误按钮",
   "minimalmenu.config.option.pause.lanSingle": "在单人游戏中移除对局域网开放按钮",
-  "minimalmenu.config.option.pause.lanMulti": "在多人游戏中移除对局域网开放按钮",
   "minimalmenu.config.option.pause.xOffset": "X偏移",
   "minimalmenu.config.option.pause.yOffset": "Y偏移",
   "minimalmenu.config.option.sp.addSavesFolder": "添加打开存档文件夹按钮",
