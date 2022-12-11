@@ -16,11 +16,8 @@ import net.minecraft.client.gui.widget.ClickableWidget;
 public abstract class OptionsScreenMixin extends ScreenMixin {
     @Inject(method = "init", at = @At("TAIL"))
     protected void init(CallbackInfo info) {
-        System.out.println("Intered YAY");
         if (ConfigHandler.REMOVE_ONLINE) {
             for (ClickableWidget button : Screens.getButtons((Screen)(Object)this)) {
-                System.out.println(button.getMessage());
-                System.out.println("Looping");
                 if (!this.client.isInSingleplayer()) {
                     if (MinimalMenu.buttonMatchesKey(button, "options.online")) {
                         button.visible = false;
