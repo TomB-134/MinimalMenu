@@ -1,5 +1,7 @@
 package minimalmenu.screens;
 
+import java.util.function.Supplier;
+
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -27,10 +29,10 @@ public class FolderScreen extends Screen {
             if (i == 0) {
                 this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, (this.height / 2 + (i-1) * 24) - y, 200, 20, Text.literal(file.getName()), button -> {
                     Util.getOperatingSystem().open(file);
-                }));
+                }, Supplier::get));
                 this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, (this.height / 2 + (directories.length+1) * 24) - y, 200, 20, ScreenTexts.DONE, button -> {
                     client.setScreen(parent);
-                }));
+                }, Supplier::get));
             }
             if (i < directories.length) {
                 int x = i;
@@ -38,7 +40,7 @@ public class FolderScreen extends Screen {
                     File fileToOpen = new File(file.getAbsolutePath() + File.separator + directories[x]);
                     System.out.println(fileToOpen.getAbsolutePath());
                     Util.getOperatingSystem().open(fileToOpen);
-                }));
+                }), Supplier::get);
                 this.addDrawableChild(buttonWidget);
             }
         }

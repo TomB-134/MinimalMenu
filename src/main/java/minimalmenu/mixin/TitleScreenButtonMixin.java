@@ -1,5 +1,7 @@
 package minimalmenu.mixin;
 
+import java.util.function.Supplier;
+
 import minimalmenu.MinimalMenu;
 import minimalmenu.config.ConfigHandler;
 import net.minecraft.client.gui.screen.Screen;
@@ -23,7 +25,7 @@ public abstract class TitleScreenButtonMixin extends Screen {
             this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, (this.height / 4 + 48) + 84 , 20, 20, Text.translatable("minimalmenu.common..minecraft"), (button) -> {
                 MinimalMenu.processButtonFolderClick(client);
 
-            }));
+            }, Supplier::get));
         }
     }
 

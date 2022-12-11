@@ -33,6 +33,7 @@
   "mixins": [
     "minimalmenu.mixins.json"
   ],
+  "accessWidener" : "minimalmenu.accesswidener",
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": ">=0.35.0",

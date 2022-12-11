@@ -2,6 +2,7 @@ package minimalmenu.mixin;
 
 import java.io.File;
 import java.util.List;
+import java.util.function.Supplier;
 
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Final;
@@ -37,7 +38,7 @@ public abstract class SelectWorldScreenMixin extends ScreenMixin {
                         assert this.client != null;
                         File file = client.runDirectory.toPath().resolve("saves").toFile(); //Create saves file from current running directory.
                         Util.getOperatingSystem().open(file);
-                    })));
+                    }), Supplier::get));
         }
         if (ConfigHandler.ADD_RELOAD_SAVES) {
             buttons.add(
@@ -49,7 +50,7 @@ public abstract class SelectWorldScreenMixin extends ScreenMixin {
                     button -> {
                         assert this.client != null;
                         this.client.setScreenAndRender(new SelectWorldScreen(parent)); //Refresh screen, by creating a new one.
-                    }));
+                    }, Supplier::get));
         }
     }
 }
