@@ -20,7 +20,6 @@
   "minimalmenu.config.option.title.accessibility": "移除辅助功能按钮",
   "minimalmenu.config.option.title.language": "移除语言按钮",
   "minimalmenu.config.option.title.copy": "移除版权声明",
-  "minimalmenu.config.option.title.spin": "暂停背景动画",
   "minimalmenu.config.option.title.dirtBackground": "关闭背景动画",
   "minimalmenu.config.option.title.xOffset": "X偏移",
   "minimalmenu.config.option.title.yOffset": "Y偏移",

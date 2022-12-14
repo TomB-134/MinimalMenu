@@ -77,11 +77,6 @@ public class ConfigScreen {
                 .setSaveConsumer(newValue -> ConfigHandler.ADD_FOLDER_TS = newValue)
                 .build());
 
-        titleScreen.addEntry(entryBuilder.startBooleanToggle(Text.translatable("minimalmenu.config.option.title.spin"), ConfigHandler.STOP_SPIN)
-                .setDefaultValue(false)
-                .setSaveConsumer(newValue -> ConfigHandler.STOP_SPIN = newValue)
-                .build());
-
         titleScreen.addEntry(entryBuilder.startBooleanToggle(Text.translatable("minimalmenu.config.option.title.dirtBackground"), ConfigHandler.DIRT_BACKGROUND)
                 .setDefaultValue(false)
                 .setSaveConsumer(newValue -> ConfigHandler.DIRT_BACKGROUND = newValue)
