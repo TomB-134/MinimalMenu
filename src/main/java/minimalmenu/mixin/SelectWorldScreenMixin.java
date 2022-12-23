@@ -2,7 +2,6 @@ package minimalmenu.mixin;
 
 import java.io.File;
 import java.util.List;
-import java.util.function.Supplier;
 
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Final;
@@ -29,28 +28,32 @@ public abstract class SelectWorldScreenMixin extends ScreenMixin {
         
         if (ConfigHandler.ADD_SAVES) {
             buttons.add(
-                new ButtonWidget(
-                    this.width / 2 - 232, //Create open saves folder button.
-                    this.height - 28,
-                    72, 20,
+                ButtonWidget.builder(
                     Text.translatable("minimalmenu.screen.singleplayer.saves"),
-                    (button -> {
+                    button -> {
                         assert this.client != null;
                         File file = client.runDirectory.toPath().resolve("saves").toFile(); //Create saves file from current running directory.
                         Util.getOperatingSystem().open(file);
-                    }), Supplier::get));
+                    }
+                )
+                .position(this.width / 2 - 232, this.height - 28)
+                .size(72, 20)
+                .build()
+            );
         }
         if (ConfigHandler.ADD_RELOAD_SAVES) {
             buttons.add(
-                new ButtonWidget(
-                    this.width / 2 - 232, //Create reload button.
-                    this.height - 52,
-                    72, 20,
-                        Text.translatable("minimalmenu.screen.singleplayer.reload"),
+                ButtonWidget.builder(
+                    Text.translatable("minimalmenu.screen.singleplayer.reload"),
                     button -> {
                         assert this.client != null;
                         this.client.setScreenAndRender(new SelectWorldScreen(parent)); //Refresh screen, by creating a new one.
-                    }, Supplier::get));
+                    }
+                )
+                .position(this.width / 2 - 232, this.height - 52)
+                .size(72, 20)
+                .build()
+            );
         }
     }
 }
