@@ -117,7 +117,7 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
                     button.setX(this.width / 2 - buttonWidth / 2);
                 }
             }
-            
+
             if (ConfigHandler.REMOVE_FEEDBACK) {
                 if (MinimalMenu.buttonMatchesKey(button, "menu.sendFeedback")) {
                     button.visible = false;
@@ -144,7 +144,7 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
                     }
                 }
             }
-            
+
             button.setX(button.getX() - ConfigHandler.X_OFFSET_PAUSE);
             button.setY(button.getY() - ConfigHandler.Y_OFFSET_PAUSE);
             button.setY(button.getY() - yOffset);

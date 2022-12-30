@@ -108,8 +108,8 @@ public class ConfigScreen {
                 .setDefaultValue(false)
                 .setSaveConsumer(newValue -> ConfigHandler.REMOVE_BUGS = newValue)
                 .build());
-                
-	pauseScreen.addEntry(entryBuilder.startBooleanToggle(Text.translatable("minimalmenu.config.option.pause.reporting"), ConfigHandler.REMOVE_REPORTING)
+
+        pauseScreen.addEntry(entryBuilder.startBooleanToggle(Text.translatable("minimalmenu.config.option.pause.reporting"), ConfigHandler.REMOVE_REPORTING)
                 .setDefaultValue(false)
                 .setSaveConsumer(newValue -> ConfigHandler.REMOVE_REPORTING = newValue)
                 .build());
