@@ -1,7 +1,7 @@
 # Minimal Menu
 
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue)
-![Game version](https://img.shields.io/badge/minecraft-1.19-blueviolet)
+![Game version](https://img.shields.io/badge/minecraft-1.19.2-blueviolet)
 ![Environment](https://img.shields.io/badge/environment-client-red)
 
 Minimal Menu is a small client side mod that allows the user independently toggle many buttons on the title screen and options screens. It also adds features like a button to reload saves, and view saves folder. Designed to work with mod menu and mod menu only.
@@ -29,8 +29,8 @@ Minimal Menu is a small client side mod that allows the user independently toggl
 * Remove the Realms notification button from the options screen
 * Remove the feedback button from the pause screen
 * Remove the bug report button from the pause screen
-* Remove the open to lan button in singleplayer
-* Remove the open to lan button in multiplayer
+* Remove the open to lan button
+* Remove the player reporting button
 
 ## Installation
 
