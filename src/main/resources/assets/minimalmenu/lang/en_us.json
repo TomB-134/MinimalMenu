@@ -28,7 +28,7 @@
   "minimalmenu.config.option.pause.feedback": "Remove Feedback",
   "minimalmenu.config.option.pause.bugs": "Remove Report Bugs",
   "minimalmenu.config.option.pause.reporting": "Remove Player Reporting",
-  "minimalmenu.config.option.pause.lanSingle": "Remove Open To Lan in Singleplayer",
+  "minimalmenu.config.option.pause.lanSingle": "Remove Open To Lan",
   "minimalmenu.config.option.pause.xOffset": "X Offset",
   "minimalmenu.config.option.pause.yOffset": "Y Offset",
   "minimalmenu.config.option.sp.addSavesFolder": "Add Saves Folder Button",
