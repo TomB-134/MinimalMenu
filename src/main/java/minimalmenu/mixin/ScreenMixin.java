@@ -70,24 +70,24 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
             if (ConfigHandler.REMOVE_ACCESSIBILITY) {
                 if (MinimalMenu.buttonMatchesKey(button, "narrator.button.accessibility")) {
                     button.visible = false;
-                    posY = button.y - yOffset;
+                    posY = button.getY() - yOffset;
                 }
             }
 
             if (MinimalMenu.buttonMatchesKey(button, "modmenu.title")) {
                 if (!ConfigHandler.REMOVE_ACCESSIBILITY) {
-                    posY = button.y;
+                    posY = button.getY();
                 }
             }
 
             if (MinimalMenu.buttonMatchesKey(button, "minimalmenu.common..minecraft")) {
-                button.y = posY;
+                button.setY(posY);
             } else {
-                button.y -= yOffset;
+                button.setY(button.getY() - yOffset);
             }
 
-            button.x -= ConfigHandler.X_OFFSET_TITLE;
-            button.y -= ConfigHandler.Y_OFFSET_TITLE;
+            button.setX(button.getX() - ConfigHandler.X_OFFSET_TITLE);
+            button.setY(button.getY() - ConfigHandler.Y_OFFSET_TITLE);
         }
     }
 
@@ -106,7 +106,7 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
                 }
                 if (MinimalMenu.buttonMatchesKey(button, "menu.options")) {
                     button.setWidth(buttonWidth);
-                    button.x = this.width / 2 - buttonWidth / 2;
+                    button.setX(this.width / 2 - buttonWidth / 2);
                 }
             } else if (removeReporting) {
             	if (MinimalMenu.buttonMatchesKey(button, "menu.playerReporting")) {
@@ -114,10 +114,10 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
                 }
                 if (MinimalMenu.buttonMatchesKey(button, "menu.options")) {
                     button.setWidth(buttonWidth);
-                    button.x = this.width / 2 - buttonWidth / 2;
+                    button.setX(this.width / 2 - buttonWidth / 2);
                 }
             }
-            
+
             if (ConfigHandler.REMOVE_FEEDBACK) {
                 if (MinimalMenu.buttonMatchesKey(button, "menu.sendFeedback")) {
                     button.visible = false;
@@ -125,7 +125,7 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
                 if (!ConfigHandler.REMOVE_BUGS) {
                     if (MinimalMenu.buttonMatchesKey(button, "menu.reportBugs")) {
                         button.setWidth(buttonWidth);
-                        button.x = this.width / 2 - buttonWidth / 2;
+                        button.setX(this.width / 2 - buttonWidth / 2);
                     }
                 }
             }
@@ -140,14 +140,14 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
                 if (!ConfigHandler.REMOVE_FEEDBACK) {
                     if (MinimalMenu.buttonMatchesKey(button, "menu.sendFeedback")) {
                         button.setWidth(buttonWidth);
-                        button.x = this.width / 2 - buttonWidth / 2;
+                        button.setX(this.width / 2 - buttonWidth / 2);
                     }
                 }
             }
-            
-            button.x -= ConfigHandler.X_OFFSET_PAUSE;
-            button.y -= ConfigHandler.Y_OFFSET_PAUSE;
-            button.y -= yOffset;
+
+            button.setX(button.getX() - ConfigHandler.X_OFFSET_PAUSE);
+            button.setY(button.getY() - ConfigHandler.Y_OFFSET_PAUSE);
+            button.setY(button.getY() - yOffset);
         }
     }
 }

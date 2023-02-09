@@ -13,15 +13,12 @@ import net.minecraft.client.gui.RotatingCubeMapRenderer;
 @Mixin(RotatingCubeMapRenderer.class)
 public abstract class RotatingCubeMapRendererMixin {
     @Shadow @Final private MinecraftClient client;
-    @Shadow private float time;
 
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
     public void render(float delta, float alpha, CallbackInfo info) {
         if (ConfigHandler.DIRT_BACKGROUND) {
             this.client.currentScreen.renderBackgroundTexture(0);
             info.cancel();
-        } else if (ConfigHandler.STOP_SPIN) {
-            time -= delta;
         }
     }
 }

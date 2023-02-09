@@ -20,9 +20,17 @@ public abstract class GameMenuScreenMixin extends Screen {
     @Inject(method = "initWidgets", at = @At("HEAD"))
     private void initWidgets(CallbackInfo info) {
         if (ConfigHandler.ADD_FOLDER_PS) {
-            this.addDrawableChild(new ButtonWidget(this.width / 2 + 104, this.height / 4 + 120 + -16, 20, 20, Text.translatable("minimalmenu.common..minecraft"), (button) -> {
-                MinimalMenu.processButtonFolderClick(client);
-            }));
+            this.addDrawableChild(
+                ButtonWidget.builder(
+                    Text.translatable("minimalmenu.common..minecraft"),
+                    button -> {
+                        MinimalMenu.processButtonFolderClick(client);
+                    }
+                )
+                .position(this.width / 2 + 104, this.height / 4 + 120 + -16)
+                .size(20, 20)
+                .build()
+            );
         }
     }
 }

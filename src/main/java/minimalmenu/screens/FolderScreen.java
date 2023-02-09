@@ -25,21 +25,45 @@ public class FolderScreen extends Screen {
         int y = (directories.length * 24) / 2;
         for (int i = 0; i <= directories.length; i++) {
             if (i == 0) {
-                this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, (this.height / 2 + (i-1) * 24) - y, 200, 20, Text.literal(file.getName()), button -> {
-                    Util.getOperatingSystem().open(file);
-                }));
-                this.addDrawableChild(new ButtonWidget(this.width / 2 - 100, (this.height / 2 + (directories.length+1) * 24) - y, 200, 20, ScreenTexts.DONE, button -> {
-                    client.setScreen(parent);
-                }));
+                this.addDrawableChild(
+                    ButtonWidget.builder(
+                    Text.literal(file.getName()),
+                        button -> {
+                            Util.getOperatingSystem().open(file);
+                        }
+                    )
+                    .position(this.width / 2 - 100, (this.height / 2 + (i-1) * 24) - y)
+                    .size(200, 20)
+                    .build()
+                );
+
+                this.addDrawableChild(
+                    ButtonWidget.builder(
+                        ScreenTexts.DONE,
+                        button -> {
+                            client.setScreen(parent);
+                        }
+                    )
+                    .position(this.width / 2 - 100, (this.height / 2 + (directories.length + 1) * 24) - y)
+                    .size(200, 20)
+                    .build()
+                );
             }
             if (i < directories.length) {
                 int x = i;
-                ButtonWidget buttonWidget = new ButtonWidget(this.width / 2 - 100, (this.height / 2 + i * 24) - y, 200, 20, Text.literal(directories[x]), (button -> {
-                    File fileToOpen = new File(file.getAbsolutePath() + File.separator + directories[x]);
-                    System.out.println(fileToOpen.getAbsolutePath());
-                    Util.getOperatingSystem().open(fileToOpen);
-                }));
-                this.addDrawableChild(buttonWidget);
+                this.addDrawableChild(
+                    ButtonWidget.builder(
+                        Text.literal(directories[x]),
+                        button -> {
+                            File fileToOpen = new File(file.getAbsolutePath() + File.separator + directories[x]);
+                            System.out.println(fileToOpen.getAbsolutePath());
+                            Util.getOperatingSystem().open(fileToOpen);
+                        }
+                    )
+                    .position(this.width / 2 - 100, (this.height / 2 + i * 24) - y)
+                    .size(200, 20)
+                    .build()
+                );
             }
         }
     }
