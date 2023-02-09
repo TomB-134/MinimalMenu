@@ -10,7 +10,8 @@
     "OptionsScreenMixin",
     "ScreenMixin",
     "GameMenuScreenMixin",
-    "TitleScreenButtonMixin"
+    "TitleScreenButtonMixin",
+    "GridWidgetAdderMixin"
   ],
   "server": [],
   "injectors": {

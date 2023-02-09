@@ -12,7 +12,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.option.OptionsScreen;
 import net.minecraft.client.gui.widget.ClickableWidget;
 
-@Mixin(OptionsScreen.class)
+@Mixin(value = OptionsScreen.class, priority = 1100)
 public abstract class OptionsScreenMixin extends ScreenMixin {
     @Inject(method = "init", at = @At("TAIL"))
     protected void init(CallbackInfo info) {
