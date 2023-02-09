@@ -27,8 +27,6 @@ public abstract class GridWidgetAdderMixin {
         boolean removeLan = ConfigHandler.REMOVE_LANSP && isInSingleplayer && !isLocalLan;
         boolean removeReporting = ConfigHandler.REMOVE_REPORTING && (!isInSingleplayer || isLocalLan);
 
-        System.out.println(widget.getMessage() + " | " + widget.active + " | " + widget.visible);
-
         if (removeLan) { //REMOVE LAN
             if (MinimalMenu.buttonMatchesKey(widget, "menu.shareToLan")) {
                 cir.cancel();

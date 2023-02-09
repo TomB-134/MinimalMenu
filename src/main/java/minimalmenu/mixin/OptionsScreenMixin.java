@@ -3,7 +3,9 @@ package minimalmenu.mixin;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Group;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import minimalmenu.MinimalMenu;
 import minimalmenu.config.ConfigHandler;
@@ -14,6 +16,8 @@ import net.minecraft.client.gui.widget.ClickableWidget;
 
 @Mixin(value = OptionsScreen.class, priority = 1100)
 public abstract class OptionsScreenMixin extends ScreenMixin {
+
+
     @Inject(method = "init", at = @At("TAIL"))
     protected void init(CallbackInfo info) {
         if (ConfigHandler.REMOVE_ONLINE) {
